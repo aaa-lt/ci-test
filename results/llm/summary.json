@@ -1,4 +1,97 @@
 {
+  "alice-gigaam-b2": {
+    "calls": 11,
+    "outcomes": {
+      "accepted": 10,
+      "rejected_no_evidence": 1
+    },
+    "retries": 1,
+    "quotes": {
+      "exact": 99,
+      "fuzzy": 0,
+      "failed": 0,
+      "unverified": 0
+    },
+    "inputTokens": 19665,
+    "outputTokens": 8221,
+    "latencyMsMean": 9693,
+    "responseFormat": {
+      "json_schema, strict=true": 11
+    },
+    "errors": [],
+    "cases": [
+      {
+        "case": "demo",
+        "engine": "gigaam-rnnt",
+        "score": 1,
+        "autoFail": null,
+        "unanswered": 0,
+        "agree": 7,
+        "disagree": [
+          "empathy: 5 / 4",
+          "accuracy: correct / inexact",
+          "promises: yes / no"
+        ],
+        "seconds": 27.6,
+        "evidence": {
+          "exact": 43
+        },
+        "rejectedQuotes": 0
+      },
+      {
+        "case": "move",
+        "engine": "gigaam-rnnt",
+        "score": 0.95,
+        "autoFail": null,
+        "unanswered": 0,
+        "agree": 8,
+        "disagree": [
+          "empathy: 3 / 4",
+          "promises: yes / отказ"
+        ],
+        "seconds": 21.7,
+        "evidence": {
+          "exact": 22
+        },
+        "rejectedQuotes": 0
+      },
+      {
+        "case": "rude",
+        "engine": "gigaam-rnnt",
+        "score": 0,
+        "autoFail": "forbidden",
+        "unanswered": 2,
+        "agree": 6,
+        "disagree": [
+          "resolved: partial / unresolved",
+          "promises: нет ответа / yes",
+          "closing: нет ответа / no",
+          "documented: yes / no"
+        ],
+        "seconds": 19.5,
+        "evidence": {
+          "exact": 16
+        },
+        "rejectedQuotes": 0
+      },
+      {
+        "case": "tariff",
+        "engine": "gigaam-rnnt",
+        "score": 0.95,
+        "autoFail": null,
+        "unanswered": 0,
+        "agree": 9,
+        "disagree": [
+          "empathy: 3 / 4"
+        ],
+        "seconds": 18.8,
+        "evidence": {
+          "exact": 18
+        },
+        "rejectedQuotes": 0
+      }
+    ]
+  },
   "alice-reference-b2": {
     "calls": 11,
     "outcomes": {
@@ -468,6 +561,96 @@
         "evidence": {
           "exact": 15,
           "fuzzy": 3
+        },
+        "rejectedQuotes": 0
+      }
+    ]
+  },
+  "qwen235-gigaam-b2": {
+    "calls": 10,
+    "outcomes": {
+      "accepted": 10
+    },
+    "retries": 0,
+    "quotes": {
+      "exact": 105,
+      "fuzzy": 0,
+      "failed": 0,
+      "unverified": 0
+    },
+    "inputTokens": 24766,
+    "outputTokens": 13716,
+    "latencyMsMean": 45883,
+    "responseFormat": {
+      "json_schema, strict=true": 10
+    },
+    "errors": [],
+    "cases": [
+      {
+        "case": "demo",
+        "engine": "gigaam-rnnt",
+        "score": 0.9,
+        "autoFail": null,
+        "unanswered": 0,
+        "agree": 8,
+        "disagree": [
+          "empathy: 5 / 4",
+          "accuracy: correct / inexact"
+        ],
+        "seconds": 67.5,
+        "evidence": {
+          "exact": 46
+        },
+        "rejectedQuotes": 0
+      },
+      {
+        "case": "move",
+        "engine": "gigaam-rnnt",
+        "score": 0.95,
+        "autoFail": null,
+        "unanswered": 0,
+        "agree": 8,
+        "disagree": [
+          "empathy: 3 / 4",
+          "promises: yes / отказ"
+        ],
+        "seconds": 104.8,
+        "evidence": {
+          "exact": 19
+        },
+        "rejectedQuotes": 0
+      },
+      {
+        "case": "rude",
+        "engine": "gigaam-rnnt",
+        "score": 0,
+        "autoFail": "forbidden",
+        "unanswered": 0,
+        "agree": 7,
+        "disagree": [
+          "accuracy: inexact / correct",
+          "resolved: partial / unresolved",
+          "documented: yes / no"
+        ],
+        "seconds": 98.4,
+        "evidence": {
+          "exact": 17
+        },
+        "rejectedQuotes": 0
+      },
+      {
+        "case": "tariff",
+        "engine": "gigaam-rnnt",
+        "score": 0.95,
+        "autoFail": null,
+        "unanswered": 0,
+        "agree": 9,
+        "disagree": [
+          "empathy: 3 / 4"
+        ],
+        "seconds": 121.1,
+        "evidence": {
+          "exact": 23
         },
         "rejectedQuotes": 0
       }
