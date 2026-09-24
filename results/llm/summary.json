@@ -374,6 +374,105 @@
       }
     ]
   },
+  "ci-local-t-lite-yandex-b2": {
+    "calls": 12,
+    "outcomes": {
+      "accepted": 9,
+      "rejected_no_evidence": 3
+    },
+    "retries": 2,
+    "quotes": {
+      "exact": 83,
+      "fuzzy": 7,
+      "failed": 0,
+      "unverified": 0
+    },
+    "inputTokens": 24030,
+    "outputTokens": 11118,
+    "latencyMsMean": 511192,
+    "responseFormat": {
+      "json_schema, strict=true": 12
+    },
+    "errors": [],
+    "cases": [
+      {
+        "case": "demo",
+        "engine": "yandex",
+        "score": 1,
+        "autoFail": null,
+        "unanswered": 0,
+        "agree": 7,
+        "disagree": [
+          "empathy: 5 / 4",
+          "accuracy: correct / inexact",
+          "promises: yes / no"
+        ],
+        "seconds": 2729,
+        "evidence": {
+          "exact": 43,
+          "fuzzy": 1
+        },
+        "rejectedQuotes": 0
+      },
+      {
+        "case": "move",
+        "engine": "yandex",
+        "score": 0.75,
+        "autoFail": null,
+        "unanswered": 0,
+        "agree": 7,
+        "disagree": [
+          "empathy: 3 / 4",
+          "promises: no / отказ",
+          "closing: no / yes"
+        ],
+        "seconds": 961.5,
+        "evidence": {
+          "exact": 10,
+          "fuzzy": 3
+        },
+        "rejectedQuotes": 0
+      },
+      {
+        "case": "rude",
+        "engine": "yandex",
+        "score": 0,
+        "autoFail": "forbidden",
+        "unanswered": 2,
+        "agree": 5,
+        "disagree": [
+          "greeting: нет ответа / no",
+          "procedure: violated / partial",
+          "accuracy: inexact / correct",
+          "promises: no / yes",
+          "closing: нет ответа / no"
+        ],
+        "seconds": 1334.5,
+        "evidence": {
+          "exact": 15
+        },
+        "rejectedQuotes": 0
+      },
+      {
+        "case": "tariff",
+        "engine": "yandex",
+        "score": 1,
+        "autoFail": null,
+        "unanswered": 1,
+        "agree": 8,
+        "disagree": [
+          "empathy: 5 / 4",
+          "promises: нет ответа / yes"
+        ],
+        "seconds": 1109.5,
+        "evidence": {
+          "exact": 15,
+          "fuzzy": 3
+        },
+        "rejectedQuotes": 0
+      }
+    ]
+  },
   "qwen235-reference-b2": {
     "calls": 10,
     "outcomes": {
