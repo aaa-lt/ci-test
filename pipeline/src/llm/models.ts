@@ -4,6 +4,7 @@
  */
 import { createOpenAICompatible } from '@ai-sdk/openai-compatible';
 import type { JSONValue, LanguageModel } from 'ai';
+import { Agent, setGlobalDispatcher } from 'undici';
 
 export type ModelSpec = {
   provider: 'yandex' | 'hf' | 'local';
@@ -96,6 +97,8 @@ export function toLlm(spec: ModelSpec): Llm {
   return spec.extraBody ? { ...base, providerOptions: { [spec.provider]: spec.extraBody } } : base;
 }
 
+const LOCAL_TIMEOUT_MS = 30 * 60_000;
+
 function languageModel(spec: ModelSpec): LanguageModel {
   const supportsStructuredOutputs = spec.structured === 'json_schema';
   if (spec.provider === 'yandex') {
@@ -111,6 +114,9 @@ function languageModel(spec: ModelSpec): LanguageModel {
     return provider(spec.model.replace('{folder}', folder));
   }
   if (spec.provider === 'local') {
+    // An 8B model on a CPU runner needs over five minutes for one extraction; Node's fetch
+    // gives up waiting for response headers after five by default.
+    setGlobalDispatcher(new Agent({ headersTimeout: LOCAL_TIMEOUT_MS, bodyTimeout: LOCAL_TIMEOUT_MS }));
     const provider = createOpenAICompatible({
       name: 'local',
       baseURL: process.env.LOCAL_LLM_URL ?? 'http://127.0.0.1:8080/v1',
