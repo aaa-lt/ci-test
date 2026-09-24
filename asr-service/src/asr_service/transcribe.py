@@ -29,8 +29,11 @@ def transcribe_file(path: Path, engine_name: str, roles: list[str | None] | None
     channels: list[ChannelTranscript] = []
     for idx, samples in enumerate(audio):
         t2 = time.perf_counter()
-        if engine.max_window is None:
-            windows = [chunking.Window(0.0, len(samples) / engine.rate, 0.0, len(samples) / engine.rate)]
+        length = len(samples) / engine.rate
+        # A recording that fits the engine goes in whole: the energy detector only exists
+        # to fit long channels into windows, and on short dense speech it clips soft words.
+        if engine.max_window is None or length <= engine.max_window:
+            windows = [chunking.Window(0.0, length, 0.0, length)]
         else:
             energy = chunking.frame_energy_db(samples, engine.rate)
             regions = chunking.speech_regions(energy)

@@ -34,12 +34,16 @@ def transcribe(audio: Path, out: Path, engines: list[str]) -> None:
             )
 
 
-def bench(engines: list[str], n: int, out: Path) -> None:
+def bench(engines: list[str], n: int, out: Path, force: bool = False) -> None:
     from asr_service import bench as bench_module  # needs the "bench" extra
 
     out.parent.mkdir(parents=True, exist_ok=True)
     existing = json.loads(out.read_text(encoding="utf-8")) if out.exists() else None
-    todo = [e for e in engines if not existing or e not in existing["engines"] or existing["samples"] != n]
+    todo = [
+        e
+        for e in engines
+        if force or not existing or e not in existing["engines"] or existing["samples"] != n
+    ]
     if not todo:
         return
     report = bench_module.run(todo, n)
@@ -61,12 +65,13 @@ def main() -> None:
     b.add_argument("--engines", required=True)
     b.add_argument("--n", type=int, default=150)
     b.add_argument("--out", type=Path, required=True)
+    b.add_argument("--force", action="store_true", help="rerun engines already in the report")
     args = parser.parse_args()
     engines = [e.strip() for e in args.engines.split(",") if e.strip()]
     if args.command == "transcribe":
         transcribe(args.audio, args.out, engines)
     else:
-        bench(engines, args.n, args.out)
+        bench(engines, args.n, args.out, args.force)
 
 
 if __name__ == "__main__":

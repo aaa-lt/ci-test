@@ -82,6 +82,15 @@ def test_channels_are_recognized_separately_with_speech_only_windows(tmp_path: P
     assert tr.timings["rtf"] >= 0
 
 
+def test_recording_shorter_than_the_window_goes_in_whole(tmp_path: Path, engine: FakeEngine):
+    wav = tmp_path / "short.wav"
+    stereo_call(wav, left=[(0.2, 0.6), (3.0, 3.4)], right=[(1.0, 1.5)], total=4.0)
+    tr = transcribe_module.transcribe_file(wav, "fake", ["operator", "client"])
+    assert [c.windows for c in tr.channels] == [1, 1]
+    assert engine.windows == [4.0, 4.0]  # no energy detector, whole channel each
+    assert [len(c.segments) for c in tr.channels] == [2, 1]
+
+
 def test_http_job_roundtrip(tmp_path: Path, engine: FakeEngine, monkeypatch: pytest.MonkeyPatch):
     monkeypatch.setitem(app_module.REGISTRY, "fake", ("unused", "unused", {}))
     wav = tmp_path / "call.wav"
