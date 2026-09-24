@@ -368,6 +368,102 @@
       }
     ]
   },
+  "ci-local-qwen3-8b-gigaam-rnnt-b2": {
+    "calls": 10,
+    "outcomes": {
+      "accepted": 10
+    },
+    "retries": 0,
+    "quotes": {
+      "exact": 85,
+      "fuzzy": 1,
+      "failed": 0,
+      "unverified": 0
+    },
+    "inputTokens": 23375,
+    "outputTokens": 9327,
+    "latencyMsMean": 631756,
+    "responseFormat": {
+      "json_schema, strict=true": 10
+    },
+    "errors": [],
+    "cases": [
+      {
+        "case": "demo",
+        "engine": "gigaam-rnnt",
+        "score": 0.9,
+        "autoFail": null,
+        "unanswered": 1,
+        "agree": 8,
+        "disagree": [
+          "empathy: нет ответа / 4",
+          "accuracy: correct / inexact"
+        ],
+        "seconds": 2655.7,
+        "evidence": {
+          "exact": 34
+        },
+        "rejectedQuotes": 0
+      },
+      {
+        "case": "move",
+        "engine": "gigaam-rnnt",
+        "score": 1,
+        "autoFail": null,
+        "unanswered": 1,
+        "agree": 8,
+        "disagree": [
+          "empathy: нет ответа / 4",
+          "promises: yes / отказ"
+        ],
+        "seconds": 1157.2,
+        "evidence": {
+          "exact": 14
+        },
+        "rejectedQuotes": 0
+      },
+      {
+        "case": "rude",
+        "engine": "gigaam-rnnt",
+        "score": 0,
+        "autoFail": "forbidden",
+        "unanswered": 4,
+        "agree": 3,
+        "disagree": [
+          "greeting: нет ответа / no",
+          "procedure: followed / partial",
+          "empathy: нет ответа / 1",
+          "accuracy: нет ответа / correct",
+          "resolved: partial / unresolved",
+          "promises: нет ответа / yes",
+          "documented: yes / no"
+        ],
+        "seconds": 1233.2,
+        "evidence": {
+          "exact": 18
+        },
+        "rejectedQuotes": 0
+      },
+      {
+        "case": "tariff",
+        "engine": "gigaam-rnnt",
+        "score": 1,
+        "autoFail": null,
+        "unanswered": 2,
+        "agree": 8,
+        "disagree": [
+          "empathy: нет ответа / 4",
+          "promises: нет ответа / yes"
+        ],
+        "seconds": 1271.4,
+        "evidence": {
+          "exact": 19,
+          "fuzzy": 1
+        },
+        "rejectedQuotes": 0
+      }
+    ]
+  },
   "ci-local-qwen3-8b-yandex-b2": {
     "calls": 12,
     "outcomes": {
@@ -462,6 +558,105 @@
         "seconds": 823.5,
         "evidence": {
           "exact": 13
+        },
+        "rejectedQuotes": 0
+      }
+    ]
+  },
+  "ci-local-t-lite-gigaam-rnnt-b2": {
+    "calls": 12,
+    "outcomes": {
+      "accepted": 9,
+      "rejected_no_evidence": 3
+    },
+    "retries": 2,
+    "quotes": {
+      "exact": 81,
+      "fuzzy": 9,
+      "failed": 0,
+      "unverified": 0
+    },
+    "inputTokens": 23779,
+    "outputTokens": 10996,
+    "latencyMsMean": 487357,
+    "responseFormat": {
+      "json_schema, strict=true": 12
+    },
+    "errors": [],
+    "cases": [
+      {
+        "case": "demo",
+        "engine": "gigaam-rnnt",
+        "score": 1,
+        "autoFail": null,
+        "unanswered": 0,
+        "agree": 7,
+        "disagree": [
+          "empathy: 5 / 4",
+          "accuracy: correct / inexact",
+          "promises: yes / no"
+        ],
+        "seconds": 2599.1,
+        "evidence": {
+          "exact": 41,
+          "fuzzy": 2
+        },
+        "rejectedQuotes": 0
+      },
+      {
+        "case": "move",
+        "engine": "gigaam-rnnt",
+        "score": 0.75,
+        "autoFail": null,
+        "unanswered": 0,
+        "agree": 7,
+        "disagree": [
+          "empathy: 3 / 4",
+          "promises: no / отказ",
+          "closing: no / yes"
+        ],
+        "seconds": 1049.6,
+        "evidence": {
+          "exact": 14,
+          "fuzzy": 2
+        },
+        "rejectedQuotes": 0
+      },
+      {
+        "case": "rude",
+        "engine": "gigaam-rnnt",
+        "score": 0,
+        "autoFail": "forbidden",
+        "unanswered": 2,
+        "agree": 5,
+        "disagree": [
+          "greeting: нет ответа / no",
+          "procedure: followed / partial",
+          "accuracy: inexact / correct",
+          "resolved: partial / unresolved",
+          "closing: нет ответа / no"
+        ],
+        "seconds": 1157.9,
+        "evidence": {
+          "exact": 13
+        },
+        "rejectedQuotes": 0
+      },
+      {
+        "case": "tariff",
+        "engine": "gigaam-rnnt",
+        "score": 1,
+        "autoFail": null,
+        "unanswered": 1,
+        "agree": 8,
+        "disagree": [
+          "empathy: 5 / 4",
+          "promises: нет ответа / yes"
+        ],
+        "seconds": 1041.9,
+        "evidence": {
+          "exact": 13,
+          "fuzzy": 5
         },
         "rejectedQuotes": 0
       }
