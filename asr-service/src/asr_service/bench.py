@@ -14,7 +14,7 @@ from pathlib import Path
 from typing import Any
 
 import jiwer
-from datasets import Audio, load_dataset
+from datasets import load_dataset
 
 from asr_service.textnorm import normalize
 from asr_service.transcribe import transcribe_file
@@ -26,7 +26,8 @@ SPLIT = "validate"
 
 def load_samples(n: int, min_duration: float = 1.0) -> list[dict[str, Any]]:
     """First `n` utterances of at least `min_duration` seconds, in the archive's order."""
-    ds = load_dataset(DATASET, CONFIG, split=SPLIT, streaming=True).cast_column("wav", Audio(decode=False))
+    # decode(False) keeps raw bytes; cast_column(Audio(decode=False)) still demands torchcodec.
+    ds = load_dataset(DATASET, CONFIG, split=SPLIT, streaming=True).decode(False)
     out: list[dict[str, Any]] = []
     for row in ds:
         meta = row["json"]
@@ -36,7 +37,7 @@ def load_samples(n: int, min_duration: float = 1.0) -> list[dict[str, Any]]:
                     "id": meta["id"],
                     "duration": meta["duration"],
                     "text": meta["text"],
-                    "wav": row["wav"]["bytes"],
+                    "wav": row["wav"]["bytes"] if isinstance(row["wav"], dict) else row["wav"],
                 }
             )
             if len(out) == n:
