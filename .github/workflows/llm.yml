@@ -63,8 +63,9 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          gh release download -R ggml-org/llama.cpp --pattern '*-bin-ubuntu-x64.zip' --dir /tmp/llama
-          unzip -q /tmp/llama/*.zip -d /tmp/llama
+          # Pinned build: releases/latest points at an unrelated tag, and asset names change.
+          gh release download b11160 -R ggml-org/llama.cpp --pattern 'llama-b11160-bin-ubuntu-x64.tar.gz' --dir /tmp/llama
+          tar -xzf /tmp/llama/*.tar.gz -C /tmp/llama
           server=$(find /tmp/llama -name llama-server -type f | head -1)
           echo "LLAMA_SERVER=$server" >> "$GITHUB_ENV"
           echo "LD_LIBRARY_PATH=$(dirname "$server")" >> "$GITHUB_ENV"
