@@ -8,13 +8,15 @@ License CC BY-NC 4.0: used as an external benchmark, not as the project's own da
 
 from __future__ import annotations
 
+import json
+import tarfile
 import tempfile
 import time
 from pathlib import Path
 from typing import Any
 
 import jiwer
-from datasets import load_dataset
+from huggingface_hub import hf_hub_download
 
 from asr_service.textnorm import normalize
 from asr_service.transcribe import transcribe_file
@@ -22,26 +24,41 @@ from asr_service.transcribe import transcribe_file
 DATASET = "Sh1man/silero_open_stt"
 CONFIG = "asr_calls_v2"
 SPLIT = "validate"
+SHARD = f"{CONFIG}/{SPLIT}/{SPLIT}-00000.tar"
 
 
 def load_samples(n: int, min_duration: float = 1.0) -> list[dict[str, Any]]:
-    """First `n` utterances of at least `min_duration` seconds, in the archive's order."""
-    # decode(False) keeps raw bytes; cast_column(Audio(decode=False)) still demands torchcodec.
-    ds = load_dataset(DATASET, CONFIG, split=SPLIT, streaming=True).decode(False)
+    """First `n` utterances of at least `min_duration` seconds, in the archive's order.
+
+    Reads the WebDataset shard directly: `datasets` insists on torchcodec for audio
+    columns even with decoding switched off, and nothing here needs decoded audio.
+    """
+    shard = hf_hub_download(DATASET, SHARD, repo_type="dataset")
+    pending: dict[str, dict[str, Any]] = {}
     out: list[dict[str, Any]] = []
-    for row in ds:
-        meta = row["json"]
-        if meta["duration"] >= min_duration and meta["text"].strip():
-            out.append(
-                {
-                    "id": meta["id"],
-                    "duration": meta["duration"],
-                    "text": meta["text"],
-                    "wav": row["wav"]["bytes"] if isinstance(row["wav"], dict) else row["wav"],
-                }
-            )
-            if len(out) == n:
-                break
+    with tarfile.open(shard) as tar:
+        for member in tar:
+            if not member.isfile():
+                continue
+            key, _, ext = member.name.rpartition(".")
+            f = tar.extractfile(member)
+            if f is None:
+                continue
+            item = pending.setdefault(key, {})
+            item[ext] = f.read()
+            if "wav" in item and "json" in item:
+                meta = json.loads(pending.pop(key)["json"])
+                if meta["duration"] >= min_duration and meta["text"].strip():
+                    out.append(
+                        {
+                            "id": meta["id"],
+                            "duration": meta["duration"],
+                            "text": meta["text"],
+                            "wav": item["wav"],
+                        }
+                    )
+                    if len(out) == n:
+                        break
     return out
 
 

@@ -19,7 +19,7 @@ dependencies = [
 gigaam = ["gigaam @ git+https://github.com/salute-developers/GigaAM", "torch>=2.6", "torchaudio>=2.6"]
 tone = ["tone @ git+https://github.com/voicekit-team/T-one"]
 whisper = ["transformers>=4.57", "torch>=2.6"]
-bench = ["datasets>=3", "soundfile>=0.13"]
+bench = ["huggingface_hub>=0.34"]
 
 [dependency-groups]
 dev = ["pytest>=8", "ruff>=0.6"]
