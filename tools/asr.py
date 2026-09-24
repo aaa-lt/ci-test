@@ -157,10 +157,12 @@ def score_call(ref: dict[str, Any], tr: dict[str, Any]) -> dict[str, Any]:
         segs = roles[role]["segments"]
         refs.append(normalize(" ".join(u["text"] for u in utts)))
         hyps.append(normalize(" ".join(s["text"] for s in segs)))
+        words = [w for s in segs for w in s["words"] or []]
         for u in utts:
             near = [s for s in segs if s["start"] < u["end"] + 1.0 and s["end"] > u["start"] - 1.0]
-            if near:
-                onsets.append(min(abs(s["start"] - u["start"]) for s in near))
+            onset = utterance_onset(u, near, words)
+            if onset is not None:
+                onsets.append(onset)
             local = normalize(" ".join(s["text"] for s in near))
             for ent in u["entities"]:
                 hit = f" {normalize(ent['text'])} " in f" {local} "
@@ -176,6 +178,22 @@ def score_call(ref: dict[str, Any], tr: dict[str, Any]) -> dict[str, Any]:
         "_ref": refs,
         "_hyp": hyps,
     }
+
+
+def utterance_onset(u: dict[str, Any], near: list[dict[str, Any]], words: list[dict[str, Any]]) -> float | None:
+    """Start error of the utterance's first word, the word a quote seek would land on (NFR-7).
+
+    Word-level engines: the nearest recognized word equal to the reference first word,
+    within 1.5 s. Phrase-level engines: the nearest segment start. None when the first
+    word was not recognized; those utterances are counted apart, not as errors.
+    """
+    first = normalize(u["text"]).split()[:1]
+    if not first:
+        return None
+    if words:
+        same = [w for w in words if normalize(w["text"]) == first[0] and abs(w["start"] - u["start"]) <= 1.5]
+        return min(abs(w["start"] - u["start"]) for w in same) if same else None
+    return min((abs(s["start"] - u["start"]) for s in near), default=None)
 
 
 def merge_entities(items: list[dict[str, list[int]]]) -> dict[str, str]:
