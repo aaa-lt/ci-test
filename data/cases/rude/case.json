@@ -1,0 +1,14 @@
+{
+  "id": "rude",
+  "title": "Мастер не приехал",
+  "interactions": [
+    {
+      "id": "call-1",
+      "channel": "call",
+      "operator": "op-unknown",
+      "startedAt": "2026-09-17T16:42:00+03:00",
+      "call": "rude-call",
+      "stereo": { "left": "operator", "right": "client" }
+    }
+  ]
+}

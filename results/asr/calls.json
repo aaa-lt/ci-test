@@ -1,0 +1,124 @@
+{
+  "summary": {
+    "yandex": {
+      "wer": 0.015,
+      "rtf": 0.0464,
+      "onset_mean": 0.148,
+      "entities": {
+        "date": "9/9",
+        "name": "11/11",
+        "number": "15/15",
+        "sum": "11/11",
+        "term": "10/10"
+      }
+    }
+  },
+  "calls": {
+    "yandex": {
+      "demo-call": {
+        "wer": 0.0074,
+        "rtf": 0.0421,
+        "onset_mean": 0.236,
+        "onset_p95": 0.153,
+        "entities": {
+          "name": [
+            2,
+            2
+          ],
+          "term": [
+            3,
+            3
+          ],
+          "sum": [
+            3,
+            3
+          ],
+          "date": [
+            3,
+            3
+          ],
+          "number": [
+            4,
+            4
+          ]
+        }
+      },
+      "move-call": {
+        "wer": 0.0056,
+        "rtf": 0.0499,
+        "onset_mean": 0.098,
+        "onset_p95": 0.15,
+        "entities": {
+          "name": [
+            5,
+            5
+          ],
+          "term": [
+            3,
+            3
+          ],
+          "sum": [
+            2,
+            2
+          ],
+          "date": [
+            2,
+            2
+          ],
+          "number": [
+            5,
+            5
+          ]
+        }
+      },
+      "rude-call": {
+        "wer": 0.0296,
+        "rtf": 0.0446,
+        "onset_mean": 0.157,
+        "onset_p95": 0.201,
+        "entities": {
+          "date": [
+            2,
+            2
+          ],
+          "number": [
+            1,
+            1
+          ],
+          "sum": [
+            1,
+            1
+          ]
+        }
+      },
+      "tariff-call": {
+        "wer": 0.028,
+        "rtf": 0.049,
+        "onset_mean": 0.1,
+        "onset_p95": 0.149,
+        "entities": {
+          "name": [
+            4,
+            4
+          ],
+          "term": [
+            4,
+            4
+          ],
+          "number": [
+            5,
+            5
+          ],
+          "sum": [
+            5,
+            5
+          ],
+          "date": [
+            2,
+            2
+          ]
+        }
+      }
+    }
+  }
+}

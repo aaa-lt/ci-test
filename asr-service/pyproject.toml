@@ -1,0 +1,51 @@
+[project]
+name = "asr-service"
+version = "0.1.0"
+description = "Speech recognition with word timestamps and e-mail cleanup for Talkodex"
+requires-python = ">=3.12"
+dependencies = [
+    "fastapi>=0.115",
+    "uvicorn>=0.30",
+    "python-multipart>=0.0.9",
+    "numpy>=2",
+    "httpx>=0.27",
+    "quotequail>=0.4",
+    "num2words>=0.5",
+    "jiwer>=3",
+]
+
+[project.optional-dependencies]
+# Heavy engines are installed only in the Space image; see Dockerfile.
+gigaam = ["gigaam @ git+https://github.com/salute-developers/GigaAM", "torch>=2.6", "torchaudio>=2.6"]
+tone = ["tone @ git+https://github.com/voicekit-team/T-one"]
+whisper = ["transformers>=4.57", "torch>=2.6"]
+bench = ["datasets>=3", "soundfile>=0.13"]
+
+[dependency-groups]
+dev = ["pytest>=8", "ruff>=0.6"]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/asr_service"]
+
+[tool.hatch.metadata]
+allow-direct-references = true
+
+[tool.ruff]
+line-length = 110
+
+[tool.ruff.lint]
+# FastAPI declares parameters with File()/Form() defaults by design.
+extend-ignore = ["B008"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+
+[tool.uv]
+# tone -> pyctcdecode pins numpy<2 while gigaam pins numpy==2.*. pyctcdecode uses only
+# basic numpy calls; whether T-One beam search really works on numpy 2 is checked in
+# the Space (see docs/asr-comparison.md).
+override-dependencies = ["numpy>=2"]

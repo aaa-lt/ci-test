@@ -1,0 +1,27 @@
+{
+  "id": "demo",
+  "title": "Списание за неподключённую услугу",
+  "interactions": [
+    {
+      "id": "call-1",
+      "channel": "call",
+      "operator": "op-anna",
+      "startedAt": "2026-09-10T14:05:00+03:00",
+      "call": "demo-call",
+      "stereo": { "left": "operator", "right": "client" }
+    },
+    {
+      "id": "chat-1",
+      "channel": "chat",
+      "operator": "op-dmitry",
+      "file": "chat.json"
+    },
+    {
+      "id": "email-1",
+      "channel": "email",
+      "operator": "op-kovalenko",
+      "file": "email.eml",
+      "author": "operator"
+    }
+  ]
+}

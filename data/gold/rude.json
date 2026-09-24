@@ -1,0 +1,42 @@
+{
+  "case": "rude",
+  "rubric": "default",
+  "rubricRevision": 0,
+  "answers": {
+    "greeting": {
+      "value": "no",
+      "note": "«Слушаю.» без приветствия и имени"
+    },
+    "identification": {
+      "value": "yes"
+    },
+    "procedure": {
+      "value": "partial",
+      "note": "нет номера заявки и определённого срока"
+    },
+    "empathy": {
+      "value": 1
+    },
+    "accuracy": {
+      "value": "correct",
+      "note": "в обращении нет источника, который бы противоречил сказанному"
+    },
+    "forbidden": {
+      "value": "yes",
+      "note": "«это не мои проблемы», «Мужчина»"
+    },
+    "resolved": {
+      "value": "unresolved"
+    },
+    "promises": {
+      "value": "yes",
+      "note": "единственное обещание, пометка о срочности, выполнено в звонке; вопрос спорный"
+    },
+    "closing": {
+      "value": "no"
+    },
+    "documented": {
+      "value": "no"
+    }
+  }
+}

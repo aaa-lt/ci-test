@@ -1,0 +1,717 @@
+{
+  "key": {
+    "runId": "qwen235-reference-b2",
+    "caseId": "move",
+    "scheme": "b2",
+    "model": "yandex-qwen3-235b",
+    "providerModel": "gpt://{folder}/qwen3-235b-a22b-fp8",
+    "engine": "reference",
+    "rubric": "default",
+    "rubricRevision": 0,
+    "promptVersion": "b2-v1",
+    "decoding": {
+      "temperature": 0,
+      "structured": "json_schema",
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      }
+    },
+    "options": {
+      "verify": true,
+      "maxAttempts": 3,
+      "fuzzyThreshold": 0.8
+    }
+  },
+  "seconds": 316.1,
+  "score": {
+    "sections": [
+      {
+        "id": "opening",
+        "score": 1,
+        "answered": 2,
+        "unanswered": 0
+      },
+      {
+        "id": "conduct",
+        "score": 0.875,
+        "answered": 4,
+        "unanswered": 0
+      },
+      {
+        "id": "outcome",
+        "score": 0.75,
+        "answered": 4,
+        "unanswered": 0
+      }
+    ],
+    "total": 0.85,
+    "incomplete": false,
+    "autoFail": null,
+    "unanswered": 0,
+    "priority": 0,
+    "priorityRule": {
+      "deficit": 10,
+      "autoFail": 5,
+      "unanswered": 1,
+      "rejected": 0.2
+    }
+  },
+  "answers": [
+    {
+      "questionId": "greeting",
+      "status": "answered",
+      "value": "yes",
+      "reasoning": "Оператор в первой реплике поздоровался и представился, указав название компании и своё имя. Это соответствует критерию полного приветствия.",
+      "evidence": [
+        "E1"
+      ],
+      "attempts": 2
+    },
+    {
+      "questionId": "identification",
+      "status": "answered",
+      "value": "yes",
+      "reasoning": "Оператор запросил номер договора и ФИО клиента, которые были предоставлены. Идентификация выполнена до передачи информации по договору.",
+      "evidence": [
+        "E2",
+        "E3"
+      ],
+      "attempts": 2
+    },
+    {
+      "questionId": "procedure",
+      "status": "answered",
+      "value": "followed",
+      "reasoning": "Оператор выяснил суть обращения, проверил данные, предложил решение, сообщил условия и сроки, а также номер заявки. Все шаги регламента соблюдены.",
+      "evidence": [
+        "E4",
+        "E5",
+        "E6",
+        "E7",
+        "E8"
+      ],
+      "attempts": 2
+    },
+    {
+      "questionId": "empathy",
+      "status": "answered",
+      "value": "3",
+      "reasoning": "Оператор вёл себя вежливо, но не проявлял эмоциональной поддержки, не признавал сложность ситуации клиента и не использовал формулировок, подтверждающих понимание. Общение формальное.",
+      "evidence": [
+        "E9",
+        "E10",
+        "E11"
+      ],
+      "attempts": 2
+    },
+    {
+      "questionId": "accuracy",
+      "status": "answered",
+      "value": "correct",
+      "reasoning": "Все предоставленные сведения — о стоимости терминала, сроках визита и условиях переноса — изложены чётко и не противоречат друг другу. Других взаимодействий для проверки нет, но внутренняя согласованность соблюдена.",
+      "evidence": [
+        "E12",
+        "E13",
+        "E14"
+      ],
+      "attempts": 2
+    },
+    {
+      "questionId": "forbidden",
+      "status": "answered",
+      "value": "no",
+      "reasoning": "В приведённых репликах отсутствуют запрещённые формулировки: нет перекладывания ответственности, грубости, упрёков или некорректных обращений.",
+      "evidence": [],
+      "attempts": 2
+    },
+    {
+      "questionId": "resolved",
+      "status": "answered",
+      "value": "resolved",
+      "reasoning": "Клиент подтвердил согласие с предложенным временем визита, заявка на перенос оформлена. Все требования клиента удовлетворены — обращение решено.",
+      "evidence": [
+        "E15",
+        "E16"
+      ],
+      "attempts": 2
+    },
+    {
+      "questionId": "promises",
+      "status": "answered",
+      "value": "no",
+      "reasoning": "Оператор обещал, что мастер позвонит за час до приезда, но в предоставленных доказательствах нет подтверждения выполнения этого обещания. Поскольку это последнее взаимодействие, проверить выполнение невозможно — обещание не подтверждено.",
+      "evidence": [
+        "E17"
+      ],
+      "attempts": 2
+    },
+    {
+      "questionId": "closing",
+      "status": "answered",
+      "value": "yes",
+      "reasoning": "Оператор уточнил, остались ли вопросы, и попрощался по имени клиента. Разговор завершён корректно.",
+      "evidence": [
+        "E18",
+        "E19"
+      ],
+      "attempts": 2
+    },
+    {
+      "questionId": "documented",
+      "status": "answered",
+      "value": "yes",
+      "reasoning": "Оператор сообщил, что заявка оформлена, и назвал её номер. Обращение зафиксировано в системе и клиент об этом информирован.",
+      "evidence": [
+        "E20"
+      ],
+      "attempts": 2
+    }
+  ],
+  "evidence": [
+    {
+      "questionId": "greeting",
+      "interactionId": "call-1",
+      "turn": 1,
+      "quote": "Компания «Кварта», меня зовут Виктория, здравствуйте.",
+      "note": "Оператор поздоровался и представился — есть и название компании, и имя.",
+      "verification": {
+        "level": "exact",
+        "turn": 1,
+        "from": 0,
+        "to": 6,
+        "similarity": 1,
+        "matched": "компания кварта меня зовут виктория здравствуйте",
+        "seek": 0.8
+      },
+      "id": "E1"
+    },
+    {
+      "questionId": "identification",
+      "interactionId": "call-1",
+      "turn": 3,
+      "quote": "Хорошо, давайте оформим перенос. Назовите, пожалуйста, номер договора и ваши фамилию, имя, отчество.",
+      "note": "Оператор запросил идентификаторы: номер договора и ФИО.",
+      "verification": {
+        "level": "exact",
+        "turn": 3,
+        "from": 0,
+        "to": 13,
+        "similarity": 1,
+        "matched": "хорошо давайте оформим перенос назовите пожалуйста номер договора и ваши фамилию имя отчество",
+        "seek": 10.27
+      },
+      "id": "E2"
+    },
+    {
+      "questionId": "identification",
+      "interactionId": "call-1",
+      "turn": 4,
+      "quote": "Договор семь два ноль ноль пять пять восемь, Исмаилов Тимур Рашидович.",
+      "note": "Клиент предоставил номер договора и ФИО — идентификация завершена.",
+      "verification": {
+        "level": "exact",
+        "turn": 4,
+        "from": 0,
+        "to": 11,
+        "similarity": 1,
+        "matched": "договор семь два ноль ноль пять пять восемь исмаилов тимур рашидович",
+        "seek": 18.78
+      },
+      "id": "E3"
+    },
+    {
+      "questionId": "procedure",
+      "interactionId": "call-1",
+      "turn": 2,
+      "quote": "Я переезжаю и хочу перенести интернет на новый адрес.",
+      "note": "Суть обращения выяснена.",
+      "verification": {
+        "level": "exact",
+        "turn": 2,
+        "from": 1,
+        "to": 10,
+        "similarity": 1,
+        "matched": "я переезжаю и хочу перенести интернет на новый адрес",
+        "seek": 4.749
+      },
+      "id": "E4"
+    },
+    {
+      "questionId": "procedure",
+      "interactionId": "call-1",
+      "turn": 7,
+      "quote": "Проверяю техническую возможность. Одну минуту.",
+      "note": "Оператор проверяет данные в системе.",
+      "verification": {
+        "level": "exact",
+        "turn": 7,
+        "from": 0,
+        "to": 5,
+        "similarity": 1,
+        "matched": "проверяю техническую возможность одну минуту",
+        "seek": 34.373
+      },
+      "id": "E5"
+    },
+    {
+      "questionId": "procedure",
+      "interactionId": "call-1",
+      "turn": 13,
+      "quote": "Ближайшее свободное время: двадцать восьмого сентября с десяти до двух. Вас устроит?",
+      "note": "Предложено решение — время визита мастера.",
+      "verification": {
+        "level": "exact",
+        "turn": 13,
+        "from": 0,
+        "to": 12,
+        "similarity": 1,
+        "matched": "ближайшее свободное время двадцать восьмого сентября с десяти до двух вас устроит",
+        "seek": 74.057
+      },
+      "id": "E6"
+    },
+    {
+      "questionId": "procedure",
+      "interactionId": "call-1",
+      "turn": 15,
+      "quote": "Перенос бесплатный, на старом адресе интернет будет работать до дня подключения на новом. Мастер позвонит за час до приезда.",
+      "note": "Сообщены условия и сроки.",
+      "verification": {
+        "level": "exact",
+        "turn": 15,
+        "from": 1,
+        "to": 20,
+        "similarity": 1,
+        "matched": "перенос бесплатный на старом адресе интернет будет работать до дня подключения на новом мастер позвонит за час до приезда",
+        "seek": 81.441
+      },
+      "id": "E7"
+    },
+    {
+      "questionId": "procedure",
+      "interactionId": "call-1",
+      "turn": 17,
+      "quote": "Заявка на перенос оформлена, номер три один семь семь четыре.",
+      "note": "Сообщён номер заявки — обращение оформлено.",
+      "verification": {
+        "level": "exact",
+        "turn": 17,
+        "from": 0,
+        "to": 10,
+        "similarity": 1,
+        "matched": "заявка на перенос оформлена номер три один семь семь четыре",
+        "seek": 93.643
+      },
+      "id": "E8"
+    },
+    {
+      "questionId": "empathy",
+      "interactionId": "call-1",
+      "turn": 1,
+      "quote": "Компания «Кварта», меня зовут Виктория, здравствуйте.",
+      "note": "Формальное приветствие без эмоциональной окраски.",
+      "verification": {
+        "level": "exact",
+        "turn": 1,
+        "from": 0,
+        "to": 6,
+        "similarity": 1,
+        "matched": "компания кварта меня зовут виктория здравствуйте",
+        "seek": 0.8
+      },
+      "id": "E9"
+    },
+    {
+      "questionId": "empathy",
+      "interactionId": "call-1",
+      "turn": 3,
+      "quote": "Хорошо, давайте оформим перенос. Назовите, пожалуйста, номер договора и ваши фамилию, имя, отчество.",
+      "note": "Формальный запрос данных, без признания ситуации клиента.",
+      "verification": {
+        "level": "exact",
+        "turn": 3,
+        "from": 0,
+        "to": 13,
+        "similarity": 1,
+        "matched": "хорошо давайте оформим перенос назовите пожалуйста номер договора и ваши фамилию имя отчество",
+        "seek": 10.27
+      },
+      "id": "E10"
+    },
+    {
+      "questionId": "empathy",
+      "interactionId": "call-1",
+      "turn": 17,
+      "quote": "Заявка на перенос оформлена, номер три один семь семь четыре. Что-нибудь ещё?",
+      "note": "Стандартный вопрос, без проявления эмпатии.",
+      "verification": {
+        "level": "exact",
+        "turn": 17,
+        "from": 0,
+        "to": 13,
+        "similarity": 1,
+        "matched": "заявка на перенос оформлена номер три один семь семь четыре что нибудь еще",
+        "seek": 93.643
+      },
+      "id": "E11"
+    },
+    {
+      "questionId": "accuracy",
+      "interactionId": "call-1",
+      "turn": 11,
+      "quote": "Терминал выдаётся в аренду за девять рублей в месяц, либо можно выкупить за сто восемьдесят рублей.",
+      "note": "Суммы указаны чётко и логично.",
+      "verification": {
+        "level": "exact",
+        "turn": 11,
+        "from": 0,
+        "to": 16,
+        "similarity": 1,
+        "matched": "терминал выдается в аренду за девять рублей в месяц либо можно выкупить за сто восемьдесят рублей",
+        "seek": 56.641
+      },
+      "id": "E12"
+    },
+    {
+      "questionId": "accuracy",
+      "interactionId": "call-1",
+      "turn": 13,
+      "quote": "Ближайшее свободное время: двадцать восьмого сентября с десяти до двух.",
+      "note": "Срок указан конкретно.",
+      "verification": {
+        "level": "exact",
+        "turn": 13,
+        "from": 0,
+        "to": 10,
+        "similarity": 1,
+        "matched": "ближайшее свободное время двадцать восьмого сентября с десяти до двух",
+        "seek": 74.057
+      },
+      "id": "E13"
+    },
+    {
+      "questionId": "accuracy",
+      "interactionId": "call-1",
+      "turn": 15,
+      "quote": "Перенос бесплатный, на старом адресе интернет будет работать до дня подключения на новом.",
+      "note": "Условия переданы верно.",
+      "verification": {
+        "level": "exact",
+        "turn": 15,
+        "from": 1,
+        "to": 14,
+        "similarity": 1,
+        "matched": "перенос бесплатный на старом адресе интернет будет работать до дня подключения на новом",
+        "seek": 81.441
+      },
+      "id": "E14"
+    },
+    {
+      "questionId": "resolved",
+      "interactionId": "call-1",
+      "turn": 17,
+      "quote": "Заявка на перенос оформлена, номер три один семь семь четыре.",
+      "note": "Заявка оформлена — решение принято и зафиксировано.",
+      "verification": {
+        "level": "exact",
+        "turn": 17,
+        "from": 0,
+        "to": 10,
+        "similarity": 1,
+        "matched": "заявка на перенос оформлена номер три один семь семь четыре",
+        "seek": 93.643
+      },
+      "id": "E15"
+    },
+    {
+      "questionId": "resolved",
+      "interactionId": "call-1",
+      "turn": 14,
+      "quote": "Да, подходит.",
+      "note": "Клиент подтвердил согласие с предложенным решением.",
+      "verification": {
+        "level": "exact",
+        "turn": 14,
+        "from": 0,
+        "to": 2,
+        "similarity": 1,
+        "matched": "да подходит",
+        "seek": 79.87
+      },
+      "id": "E16"
+    },
+    {
+      "questionId": "promises",
+      "interactionId": "call-1",
+      "turn": 15,
+      "quote": "Мастер позвонит за час до приезда.",
+      "note": "Оператор дал обещание, но его выполнение не подтверждено в этом звонке.",
+      "verification": {
+        "level": "exact",
+        "turn": 15,
+        "from": 14,
+        "to": 20,
+        "similarity": 1,
+        "matched": "мастер позвонит за час до приезда",
+        "seek": 81.441
+      },
+      "id": "E17"
+    },
+    {
+      "questionId": "closing",
+      "interactionId": "call-1",
+      "turn": 17,
+      "quote": "Заявка на перенос оформлена, номер три один семь семь четыре. Что-нибудь ещё?",
+      "note": "Оператор уточнил, остались ли вопросы.",
+      "verification": {
+        "level": "exact",
+        "turn": 17,
+        "from": 0,
+        "to": 13,
+        "similarity": 1,
+        "matched": "заявка на перенос оформлена номер три один семь семь четыре что нибудь еще",
+        "seek": 93.643
+      },
+      "id": "E18"
+    },
+    {
+      "questionId": "closing",
+      "interactionId": "call-1",
+      "turn": 19,
+      "quote": "Спасибо за обращение, Тимур Рашидович, хорошего дня.",
+      "note": "Оператор попрощался.",
+      "verification": {
+        "level": "exact",
+        "turn": 19,
+        "from": 0,
+        "to": 7,
+        "similarity": 1,
+        "matched": "спасибо за обращение тимур рашидович хорошего дня",
+        "seek": 101.601
+      },
+      "id": "E19"
+    },
+    {
+      "questionId": "documented",
+      "interactionId": "call-1",
+      "turn": 17,
+      "quote": "Заявка на перенос оформлена, номер три один семь семь четыре.",
+      "note": "Оператор сообщил о фиксации заявки и назвал её номер.",
+      "verification": {
+        "level": "exact",
+        "turn": 17,
+        "from": 0,
+        "to": 10,
+        "similarity": 1,
+        "matched": "заявка на перенос оформлена номер три один семь семь четыре",
+        "seek": 93.643
+      },
+      "id": "E20"
+    }
+  ],
+  "rejectedQuotes": 0,
+  "case": {
+    "id": "move",
+    "title": "Перенос подключения",
+    "interactions": [
+      {
+        "id": "call-1",
+        "channel": "call",
+        "operator": "op-victoria",
+        "startedAt": "2026-09-21T12:10:00+03:00",
+        "turns": [
+          {
+            "index": 1,
+            "role": "operator",
+            "start": 0.8,
+            "end": 4.294,
+            "at": null,
+            "text": "Компания «Кварта», меня зовут Виктория, здравствуйте.",
+            "words": null,
+            "overlap": false
+          },
+          {
+            "index": 2,
+            "role": "client",
+            "start": 4.749,
+            "end": 9.739,
+            "at": null,
+            "text": "Здравствуйте. Я переезжаю и хочу перенести интернет на новый адрес.",
+            "words": null,
+            "overlap": false
+          },
+          {
+            "index": 3,
+            "role": "operator",
+            "start": 10.27,
+            "end": 18.283,
+            "at": null,
+            "text": "Хорошо, давайте оформим перенос. Назовите, пожалуйста, номер договора и ваши фамилию, имя, отчество.",
+            "words": null,
+            "overlap": false
+          },
+          {
+            "index": 4,
+            "role": "client",
+            "start": 18.78,
+            "end": 24.565,
+            "at": null,
+            "text": "Договор семь два ноль ноль пять пять восемь, Исмаилов Тимур Рашидович.",
+            "words": null,
+            "overlap": false
+          },
+          {
+            "index": 5,
+            "role": "operator",
+            "start": 24.908,
+            "end": 28.5,
+            "at": null,
+            "text": "Спасибо, Тимур Рашидович. Назовите новый адрес.",
+            "words": null,
+            "overlap": false
+          },
+          {
+            "index": 6,
+            "role": "client",
+            "start": 28.864,
+            "end": 33.848,
+            "at": null,
+            "text": "Улица Сурганова, дом сорок три, корпус два, квартира сто семнадцать.",
+            "words": null,
+            "overlap": false
+          },
+          {
+            "index": 7,
+            "role": "operator",
+            "start": 34.373,
+            "end": 37.51,
+            "at": null,
+            "text": "Проверяю техническую возможность. Одну минуту.",
+            "words": null,
+            "overlap": false
+          },
+          {
+            "index": 8,
+            "role": "client",
+            "start": 41.51,
+            "end": 42.625,
+            "at": null,
+            "text": "Да, жду.",
+            "words": null,
+            "overlap": false
+          },
+          {
+            "index": 9,
+            "role": "operator",
+            "start": 42.906,
+            "end": 54.471,
+            "at": null,
+            "text": "Дом подключён по технологии джипон, это оптоволокно до квартиры. Подключение возможно. Нужно будет заменить ваш роутер на оптический терминал, мастер привезёт его сам.",
+            "words": null,
+            "overlap": false
+          },
+          {
+            "index": 10,
+            "role": "client",
+            "start": 54.981,
+            "end": 56.138,
+            "at": null,
+            "text": "Терминал платный?",
+            "words": null,
+            "overlap": false
+          },
+          {
+            "index": 11,
+            "role": "operator",
+            "start": 56.641,
+            "end": 70.086,
+            "at": null,
+            "text": "Терминал выдаётся в аренду за девять рублей в месяц, либо можно выкупить за сто восемьдесят рублей. Вручную настраивать подключение не понадобится, терминал настраивается автоматически.",
+            "words": null,
+            "overlap": false
+          },
+          {
+            "index": 12,
+            "role": "client",
+            "start": 70.497,
+            "end": 73.692,
+            "at": null,
+            "text": "Пусть будет аренда. Когда мастер сможет приехать?",
+            "words": null,
+            "overlap": false
+          },
+          {
+            "index": 13,
+            "role": "operator",
+            "start": 74.057,
+            "end": 79.512,
+            "at": null,
+            "text": "Ближайшее свободное время: двадцать восьмого сентября с десяти до двух. Вас устроит?",
+            "words": null,
+            "overlap": false
+          },
+          {
+            "index": 14,
+            "role": "client",
+            "start": 79.87,
+            "end": 81.09,
+            "at": null,
+            "text": "Да, подходит.",
+            "words": null,
+            "overlap": false
+          },
+          {
+            "index": 15,
+            "role": "operator",
+            "start": 81.441,
+            "end": 91.159,
+            "at": null,
+            "text": "Записала. Перенос бесплатный, на старом адресе интернет будет работать до дня подключения на новом. Мастер позвонит за час до приезда.",
+            "words": null,
+            "overlap": false
+          },
+          {
+            "index": 16,
+            "role": "client",
+            "start": 91.564,
+            "end": 93.222,
+            "at": null,
+            "text": "Отлично, спасибо.",
+            "words": null,
+            "overlap": false
+          },
+          {
+            "index": 17,
+            "role": "operator",
+            "start": 93.643,
+            "end": 99.088,
+            "at": null,
+            "text": "Заявка на перенос оформлена, номер три один семь семь четыре. Что-нибудь ещё?",
+            "words": null,
+            "overlap": false
+          },
+          {
+            "index": 18,
+            "role": "client",
+            "start": 99.523,
+            "end": 101.042,
+            "at": null,
+            "text": "Нет, всё понятно.",
+            "words": null,
+            "overlap": false
+          },
+          {
+            "index": 19,
+            "role": "operator",
+            "start": 101.601,
+            "end": 105.455,
+            "at": null,
+            "text": "Спасибо за обращение, Тимур Рашидович, хорошего дня.",
+            "words": null,
+            "overlap": false
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,177 @@
+{
+  "id": "default",
+  "revision": 0,
+  "title": "Черновая рубрика для спайков",
+  "passThreshold": 0.8,
+  "sections": [
+    {
+      "id": "opening",
+      "title": "Начало разговора",
+      "weight": 0.2,
+      "questions": [
+        {
+          "id": "greeting",
+          "text": "Оператор поздоровался и представился?",
+          "guidance": "«Да», если в первой реплике оператора есть приветствие и имя оператора или название компании вместе с именем. Одного названия компании без приветствия недостаточно.",
+          "kind": "yes_no",
+          "values": [
+            { "id": "no", "label": "Нет" },
+            { "id": "yes", "label": "Да" }
+          ],
+          "adverse": "no",
+          "weight": 1,
+          "appliesTo": ["call", "chat"],
+          "multiSource": false,
+          "source": "authored"
+        },
+        {
+          "id": "identification",
+          "text": "Оператор идентифицировал клиента?",
+          "guidance": "«Да», если оператор запросил и получил хотя бы один идентификатор (номер договора, ФИО владельца, номер заявки) до того, как сообщать сведения по договору.",
+          "kind": "yes_no",
+          "values": [
+            { "id": "no", "label": "Нет" },
+            { "id": "yes", "label": "Да" }
+          ],
+          "adverse": "no",
+          "weight": 1,
+          "appliesTo": ["call", "chat"],
+          "multiSource": false,
+          "source": "authored"
+        }
+      ]
+    },
+    {
+      "id": "conduct",
+      "title": "Ведение разговора",
+      "weight": 0.4,
+      "questions": [
+        {
+          "id": "procedure",
+          "text": "Соблюдён ли регламент обработки обращения?",
+          "guidance": "Регламент: выяснить суть, проверить данные в системе, предложить решение или оформить заявку, сообщить номер заявки и срок. «Частично», если пропущен один шаг; «не соблюдён», если пропущено больше.",
+          "kind": "choice",
+          "values": [
+            { "id": "violated", "label": "Не соблюдён" },
+            { "id": "partial", "label": "Частично" },
+            { "id": "followed", "label": "Полностью" }
+          ],
+          "weight": 1,
+          "appliesTo": ["call", "chat", "email"],
+          "multiSource": false,
+          "source": "authored"
+        },
+        {
+          "id": "empathy",
+          "text": "Активное слушание и эмпатия",
+          "guidance": "1 — оператор перебивает, игнорирует эмоции клиента или грубит; 3 — вежлив, но формален; 5 — признаёт проблему клиента, уточняет, подтверждает понимание.",
+          "kind": "scale",
+          "scale": { "min": 1, "max": 5, "step": 1 },
+          "weight": 1,
+          "appliesTo": ["call", "chat"],
+          "multiSource": false,
+          "source": "authored"
+        },
+        {
+          "id": "accuracy",
+          "text": "Точность предоставленной информации",
+          "guidance": "Сравните сведения оператора о суммах, сроках и условиях со сведениями из других взаимодействий обращения. «Неточно», если срок или сумма расходятся с итоговыми; «неверно», если сведения ведут клиента к ошибочным действиям.",
+          "kind": "choice",
+          "values": [
+            { "id": "wrong", "label": "Неверно" },
+            { "id": "inexact", "label": "Неточно" },
+            { "id": "correct", "label": "Верно" }
+          ],
+          "weight": 1,
+          "appliesTo": ["call", "chat", "email"],
+          "multiSource": false,
+          "source": "authored"
+        },
+        {
+          "id": "forbidden",
+          "text": "Использовал ли оператор запрещённые формулировки?",
+          "guidance": "Запрещены: перекладывание ответственности («это не мои проблемы», «это не ко мне»), обращение «мужчина»/«женщина», грубость, упрёки клиенту. Если таких фраз нет, ответ «нет» без цитаты.",
+          "kind": "yes_no",
+          "values": [
+            { "id": "yes", "label": "Да" },
+            { "id": "no", "label": "Нет" }
+          ],
+          "adverse": "yes",
+          "valueWithoutEvidence": "no",
+          "autoFail": ["yes"],
+          "weight": 1,
+          "appliesTo": ["call", "chat", "email"],
+          "multiSource": false,
+          "source": "authored"
+        }
+      ]
+    },
+    {
+      "id": "outcome",
+      "title": "Результат",
+      "weight": 0.4,
+      "questions": [
+        {
+          "id": "resolved",
+          "text": "Вопрос клиента решён?",
+          "guidance": "Оцените итог по всему обращению: решение может прийти в последнем взаимодействии. «Решён частично», если решена часть требований клиента или решение только обещано.",
+          "kind": "choice",
+          "values": [
+            { "id": "unresolved", "label": "Не решён" },
+            { "id": "partial", "label": "Решён частично" },
+            { "id": "resolved", "label": "Решён" }
+          ],
+          "weight": 1,
+          "appliesTo": ["call", "chat", "email"],
+          "multiSource": true,
+          "source": "authored"
+        },
+        {
+          "id": "promises",
+          "text": "Данные клиенту обещания выполнены?",
+          "guidance": "Найдите обещания оператора (перезвонить, прислать, сообщить) и проверьте по последующим взаимодействиям, выполнены ли они. «Нет», если хотя бы одно обещание явно не выполнено.",
+          "kind": "yes_no",
+          "values": [
+            { "id": "no", "label": "Нет" },
+            { "id": "yes", "label": "Да" }
+          ],
+          "adverse": "no",
+          "weight": 1,
+          "appliesTo": ["call", "chat", "email"],
+          "multiSource": true,
+          "source": "authored"
+        },
+        {
+          "id": "closing",
+          "text": "Разговор корректно завершён?",
+          "guidance": "«Да», если оператор уточнил, остались ли вопросы, и попрощался.",
+          "kind": "yes_no",
+          "values": [
+            { "id": "no", "label": "Нет" },
+            { "id": "yes", "label": "Да" }
+          ],
+          "adverse": "no",
+          "weight": 1,
+          "appliesTo": ["call", "chat"],
+          "multiSource": false,
+          "source": "authored"
+        },
+        {
+          "id": "documented",
+          "text": "Обращение задокументировано?",
+          "guidance": "«Да», если оператор сообщил, что зафиксировал обращение, оформил заявку или назвал её номер.",
+          "kind": "yes_no",
+          "values": [
+            { "id": "no", "label": "Нет" },
+            { "id": "yes", "label": "Да" }
+          ],
+          "adverse": "no",
+          "weight": 1,
+          "appliesTo": ["call", "chat"],
+          "multiSource": false,
+          "source": "authored"
+        }
+      ]
+    }
+  ]
+}

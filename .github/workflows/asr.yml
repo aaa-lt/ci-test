@@ -1,0 +1,83 @@
+# Local recognition engines on a GitHub runner: weights download on GitHub's side, only
+# code, audio and results cross the user's connection. Results are committed back to
+# results/, which is outside the trigger paths, so the commit does not start another run.
+name: asr
+
+on:
+  workflow_dispatch:
+    inputs:
+      engines:
+        description: Comma-separated engines
+        default: gigaam-rnnt,tone,tone-greedy,whisper-turbo
+      bench:
+        description: Open STT utterances for the WER benchmark, 0 to skip
+        default: "150"
+  push:
+    branches: [main]
+    paths:
+      - asr-service/**
+      - data/audio/*.wav
+      - .github/workflows/asr.yml
+
+permissions:
+  contents: write
+
+concurrency:
+  group: asr
+  cancel-in-progress: false
+
+jobs:
+  asr:
+    runs-on: ubuntu-latest
+    timeout-minutes: 300
+    env:
+      ENGINES: ${{ inputs.engines || 'gigaam-rnnt,tone,tone-greedy,whisper-turbo' }}
+      BENCH_N: ${{ inputs.bench || '150' }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: System packages
+        run: sudo apt-get update && sudo apt-get install -y --no-install-recommends ffmpeg build-essential cmake zlib1g-dev libbz2-dev liblzma-dev
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - uses: astral-sh/setup-uv@v6
+
+      - name: Model weights cache
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.cache/huggingface
+            ~/.cache/gigaam
+          key: asr-weights-v1
+
+      - name: Install engines
+        run: |
+          uv venv .venv
+          echo "$PWD/.venv/bin" >> "$GITHUB_PATH"
+          uv pip install --python .venv torch torchaudio --index-url https://download.pytorch.org/whl/cpu
+          # tone -> pyctcdecode pins numpy<2, gigaam pins numpy 2 (see asr-service/pyproject.toml)
+          echo "numpy>=2" > /tmp/overrides.txt
+          uv pip install --python .venv --override /tmp/overrides.txt "./asr-service[gigaam,tone,whisper,bench]"
+
+      - name: Engine health
+        run: python -c "from asr_service.engines import available; print(available())"
+
+      - name: Transcribe synthetic calls
+        run: python -m asr_service.batch transcribe --audio data/audio --out results/transcripts --engines "$ENGINES"
+
+      - name: Open STT benchmark
+        if: env.BENCH_N != '0'
+        run: python -m asr_service.batch bench --engines "$ENGINES" --n "$BENCH_N" --out results/asr/openstt.json
+
+      - name: Commit results
+        if: always()
+        run: |
+          git config user.name "$(git log -1 --format=%an)"
+          git config user.email "$(git log -1 --format=%ae)"
+          git add results/transcripts results/asr || true
+          if git diff --cached --quiet; then echo "nothing new"; exit 0; fi
+          git commit -m "Add recognition results for $ENGINES"
+          for i in 1 2 3 4 5; do git pull --rebase && git push && break; sleep $((i * 10)); done

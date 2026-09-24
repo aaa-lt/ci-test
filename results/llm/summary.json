@@ -1,0 +1,230 @@
+{
+  "alice-yandexstt-b2": {
+    "calls": 10,
+    "outcomes": {
+      "accepted": 10
+    },
+    "retries": 0,
+    "quotes": {
+      "exact": 104,
+      "fuzzy": 0,
+      "failed": 0,
+      "unverified": 0
+    },
+    "inputTokens": 17664,
+    "outputTokens": 8276,
+    "latencyMsMean": 9707,
+    "responseFormat": {
+      "json_schema, strict=true": 10
+    },
+    "errors": [],
+    "cases": [
+      {
+        "case": "demo",
+        "engine": "yandex",
+        "score": 1,
+        "autoFail": null,
+        "unanswered": 0,
+        "agree": 7,
+        "disagree": [
+          "empathy: 5 / 4",
+          "accuracy: correct / inexact",
+          "promises: yes / no"
+        ],
+        "seconds": 27.3,
+        "evidence": {
+          "exact": 47
+        },
+        "rejectedQuotes": 0
+      },
+      {
+        "case": "move",
+        "engine": "yandex",
+        "score": 0.95,
+        "autoFail": null,
+        "unanswered": 0,
+        "agree": 8,
+        "disagree": [
+          "empathy: 3 / 4",
+          "promises: yes / отказ"
+        ],
+        "seconds": 16.1,
+        "evidence": {
+          "exact": 20
+        },
+        "rejectedQuotes": 0
+      },
+      {
+        "case": "rude",
+        "engine": "yandex",
+        "score": 0,
+        "autoFail": "forbidden",
+        "unanswered": 2,
+        "agree": 6,
+        "disagree": [
+          "resolved: partial / unresolved",
+          "promises: нет ответа / yes",
+          "closing: нет ответа / no",
+          "documented: yes / no"
+        ],
+        "seconds": 14,
+        "evidence": {
+          "exact": 18
+        },
+        "rejectedQuotes": 0
+      },
+      {
+        "case": "tariff",
+        "engine": "yandex",
+        "score": 0.95,
+        "autoFail": null,
+        "unanswered": 0,
+        "agree": 9,
+        "disagree": [
+          "empathy: 3 / 4"
+        ],
+        "seconds": 15.5,
+        "evidence": {
+          "exact": 19
+        },
+        "rejectedQuotes": 0
+      }
+    ]
+  },
+  "qwen235-reference-b2": {
+    "calls": 11,
+    "outcomes": {
+      "accepted": 10,
+      "rejected_schema": 1
+    },
+    "retries": 1,
+    "quotes": {
+      "exact": 101,
+      "fuzzy": 1,
+      "failed": 0,
+      "unverified": 0
+    },
+    "inputTokens": 28144,
+    "outputTokens": 20138,
+    "latencyMsMean": 72104,
+    "responseFormat": {
+      "json_schema, strict=true": 10,
+      "none": 1
+    },
+    "errors": [
+      "AI_JSONParseError: JSON parsing failed: Text: {\n  \"greeting\": {\n    \"reasoning\": \"Оператор в первой реплике поздоровался и представился, указав название компании и своё имя. Это соответствует критерию"
+    ],
+    "cases": [
+      {
+        "case": "demo",
+        "engine": "reference",
+        "score": 0.9,
+        "autoFail": null,
+        "unanswered": 0,
+        "agree": 8,
+        "disagree": [
+          "empathy: 5 / 4",
+          "accuracy: correct / inexact"
+        ],
+        "seconds": 128.2,
+        "evidence": {
+          "exact": 41
+        },
+        "rejectedQuotes": 0
+      },
+      {
+        "case": "move",
+        "engine": "reference",
+        "score": 0.85,
+        "autoFail": null,
+        "unanswered": 0,
+        "agree": 8,
+        "disagree": [
+          "empathy: 3 / 4",
+          "promises: no / отказ"
+        ],
+        "seconds": 316.1,
+        "evidence": {
+          "exact": 20
+        },
+        "rejectedQuotes": 0
+      },
+      {
+        "case": "rude",
+        "engine": "reference",
+        "score": 0,
+        "autoFail": "forbidden",
+        "unanswered": 1,
+        "agree": 7,
+        "disagree": [
+          "accuracy: inexact / correct",
+          "promises: нет ответа / yes",
+          "documented: yes / no"
+        ],
+        "seconds": 104,
+        "evidence": {
+          "exact": 14,
+          "fuzzy": 1
+        },
+        "rejectedQuotes": 0
+      },
+      {
+        "case": "tariff",
+        "engine": "reference",
+        "score": 0.95,
+        "autoFail": null,
+        "unanswered": 0,
+        "agree": 9,
+        "disagree": [
+          "empathy: 3 / 4"
+        ],
+        "seconds": 113.5,
+        "evidence": {
+          "exact": 26
+        },
+        "rejectedQuotes": 0
+      }
+    ]
+  },
+  "qwen8b-yandexstt-b2-demo": {
+    "calls": 5,
+    "outcomes": {
+      "rejected_quote": 1,
+      "accepted": 4
+    },
+    "retries": 1,
+    "quotes": {
+      "exact": 31,
+      "fuzzy": 2,
+      "failed": 2,
+      "unverified": 0
+    },
+    "inputTokens": 14258,
+    "outputTokens": 8064,
+    "latencyMsMean": 14185,
+    "responseFormat": {
+      "json_schema, strict=true": 5
+    },
+    "errors": [],
+    "cases": [
+      {
+        "case": "demo",
+        "engine": "yandex",
+        "score": 0.9,
+        "autoFail": null,
+        "unanswered": 0,
+        "agree": 8,
+        "disagree": [
+          "empathy: 5 / 4",
+          "accuracy: correct / inexact"
+        ],
+        "seconds": 71,
+        "evidence": {
+          "exact": 28,
+          "fuzzy": 2
+        },
+        "rejectedQuotes": 2
+      }
+    ]
+  }
+}

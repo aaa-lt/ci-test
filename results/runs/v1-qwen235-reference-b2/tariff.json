@@ -1,0 +1,824 @@
+{
+  "key": {
+    "runId": "qwen235-reference-b2",
+    "caseId": "tariff",
+    "scheme": "b2",
+    "model": "yandex-qwen3-235b",
+    "providerModel": "gpt://{folder}/qwen3-235b-a22b-fp8",
+    "engine": "reference",
+    "rubric": "default",
+    "rubricRevision": 0,
+    "promptVersion": "b2-v1",
+    "decoding": {
+      "temperature": 0,
+      "structured": "json_schema",
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      }
+    },
+    "options": {
+      "verify": true,
+      "maxAttempts": 3,
+      "fuzzyThreshold": 0.8
+    }
+  },
+  "seconds": 113.5,
+  "score": {
+    "sections": [
+      {
+        "id": "opening",
+        "score": 1,
+        "answered": 2,
+        "unanswered": 0
+      },
+      {
+        "id": "conduct",
+        "score": 0.875,
+        "answered": 4,
+        "unanswered": 0
+      },
+      {
+        "id": "outcome",
+        "score": 1,
+        "answered": 4,
+        "unanswered": 0
+      }
+    ],
+    "total": 0.95,
+    "incomplete": false,
+    "autoFail": null,
+    "unanswered": 0,
+    "priority": 0,
+    "priorityRule": {
+      "deficit": 10,
+      "autoFail": 5,
+      "unanswered": 1,
+      "rejected": 0.2
+    }
+  },
+  "answers": [
+    {
+      "questionId": "greeting",
+      "status": "answered",
+      "value": "yes",
+      "reasoning": "Оператор в первой реплике поздоровался и представился, назвав компанию и своё имя. Это соответствует критерию оценки.",
+      "evidence": [
+        "E1"
+      ],
+      "attempts": 1
+    },
+    {
+      "questionId": "identification",
+      "status": "answered",
+      "value": "yes",
+      "reasoning": "Оператор запросил номер договора и фамилию владельца, клиент их предоставил, после чего оператор подтвердил данные клиента. Идентификация выполнена до предоставления информации по договору.",
+      "evidence": [
+        "E2",
+        "E3",
+        "E4"
+      ],
+      "attempts": 1
+    },
+    {
+      "questionId": "procedure",
+      "status": "answered",
+      "value": "followed",
+      "reasoning": "Оператор выяснил суть обращения, запросил данные, проверил информацию в системе, предложил решение, сообщил срок вступления изменений и подтвердил фиксацию смены тарифа. Все шаги регламента соблюдены.",
+      "evidence": [
+        "E5",
+        "E6",
+        "E7",
+        "E8",
+        "E9",
+        "E10"
+      ],
+      "attempts": 1
+    },
+    {
+      "questionId": "empathy",
+      "status": "answered",
+      "value": "3",
+      "reasoning": "Оператор вежлив, но не проявляет признания проблемы клиента, не уточняет его потребности и не выражает эмоционального сопровождения. Поведение формальное, что соответствует среднему уровню эмпатии.",
+      "evidence": [
+        "E11",
+        "E12",
+        "E13"
+      ],
+      "attempts": 1
+    },
+    {
+      "questionId": "accuracy",
+      "status": "answered",
+      "value": "correct",
+      "reasoning": "Вся предоставленная оператором информация (о дате смены тарифа, списании за сентябрь, отправке СМС) подтверждена клиентом и не противоречит итогам. Информация точная.",
+      "evidence": [
+        "E14",
+        "E15",
+        "E16",
+        "E17"
+      ],
+      "attempts": 1
+    },
+    {
+      "questionId": "forbidden",
+      "status": "answered",
+      "value": "no",
+      "reasoning": "В приведённых репликах отсутствуют запрещённые формулировки: нет перекладывания ответственности, грубости, упрёков или некорректных обращений.",
+      "evidence": [],
+      "attempts": 1
+    },
+    {
+      "questionId": "resolved",
+      "status": "answered",
+      "value": "resolved",
+      "reasoning": "Клиент выбрал новый тариф, оператор подтвердила его фиксацию, клиент выразил удовлетворение и отказался от дополнительных вопросов. Вопрос решён полностью.",
+      "evidence": [
+        "E18",
+        "E19",
+        "E20"
+      ],
+      "attempts": 1
+    },
+    {
+      "questionId": "promises",
+      "status": "answered",
+      "value": "yes",
+      "reasoning": "Оператор пообещала отправить СМС с подтверждением, клиент подтвердил его получение. Других обещаний не давалось. Все обещания выполнены.",
+      "evidence": [
+        "E21",
+        "E22"
+      ],
+      "attempts": 1
+    },
+    {
+      "questionId": "closing",
+      "status": "answered",
+      "value": "yes",
+      "reasoning": "Оператор уточнил, остались ли вопросы, и попрощался с клиентом по имени. Разговор завершён корректно.",
+      "evidence": [
+        "E24",
+        "E25"
+      ],
+      "attempts": 1
+    },
+    {
+      "questionId": "documented",
+      "status": "answered",
+      "value": "yes",
+      "reasoning": "Оператор сообщила, что смену тарифа зафиксировала, что свидетельствует о документировании действия.",
+      "evidence": [
+        "E26"
+      ],
+      "attempts": 1
+    }
+  ],
+  "evidence": [
+    {
+      "questionId": "greeting",
+      "interactionId": "call-1",
+      "turn": 1,
+      "quote": "Компания «Кварта», специалист Ольга, добрый день.",
+      "note": "Оператор поздоровался и представился — назвал компанию и своё имя.",
+      "verification": {
+        "level": "exact",
+        "turn": 1,
+        "from": 0,
+        "to": 6,
+        "similarity": 1,
+        "matched": "компания кварта специалист ольга добрый день",
+        "seek": 0.8
+      },
+      "id": "E1"
+    },
+    {
+      "questionId": "identification",
+      "interactionId": "call-1",
+      "turn": 3,
+      "quote": "Конечно, помогу. Назовите, пожалуйста, номер договора и фамилию владельца.",
+      "note": "Оператор запросил идентификаторы — номер договора и фамилию.",
+      "verification": {
+        "level": "exact",
+        "turn": 3,
+        "from": 0,
+        "to": 9,
+        "similarity": 1,
+        "matched": "конечно помогу назовите пожалуйста номер договора и фамилию владельца",
+        "seek": 9.213
+      },
+      "id": "E2"
+    },
+    {
+      "questionId": "identification",
+      "interactionId": "call-1",
+      "turn": 4,
+      "quote": "Договор пять ноль три восемь восемь один два, фамилия Мельников.",
+      "note": "Клиент предоставил идентификаторы — номер договора и фамилию.",
+      "verification": {
+        "level": "exact",
+        "turn": 4,
+        "from": 0,
+        "to": 10,
+        "similarity": 1,
+        "matched": "договор пять ноль три восемь восемь один два фамилия мельников",
+        "seek": 14.616
+      },
+      "id": "E3"
+    },
+    {
+      "questionId": "identification",
+      "interactionId": "call-1",
+      "turn": 5,
+      "quote": "Спасибо, Андрей Павлович. Сейчас у вас тариф Домашний сто, сто мегабит в секунду, абонентская плата семьсот сорок рублей в месяц.",
+      "note": "Оператор подтвердил данные клиента, используя полученную информацию.",
+      "verification": {
+        "level": "exact",
+        "turn": 5,
+        "from": 0,
+        "to": 20,
+        "similarity": 1,
+        "matched": "спасибо андрей павлович сейчас у вас тариф домашний сто сто мегабит в секунду абонентская плата семьсот сорок рублей в месяц",
+        "seek": 19.174
+      },
+      "id": "E4"
+    },
+    {
+      "questionId": "procedure",
+      "interactionId": "call-1",
+      "turn": 2,
+      "quote": "Хочу сменить тариф на интернет, текущий стал дорогой.",
+      "note": "Клиент сообщил суть обращения — смена тарифа.",
+      "verification": {
+        "level": "exact",
+        "turn": 2,
+        "from": 2,
+        "to": 10,
+        "similarity": 1,
+        "matched": "хочу сменить тариф на интернет текущий стал дорогой",
+        "seek": 4.658
+      },
+      "id": "E5"
+    },
+    {
+      "questionId": "procedure",
+      "interactionId": "call-1",
+      "turn": 3,
+      "quote": "Конечно, помогу. Назовите, пожалуйста, номер договора и фамилию владельца.",
+      "note": "Оператор запросил данные для проверки в системе.",
+      "verification": {
+        "level": "exact",
+        "turn": 3,
+        "from": 0,
+        "to": 9,
+        "similarity": 1,
+        "matched": "конечно помогу назовите пожалуйста номер договора и фамилию владельца",
+        "seek": 9.213
+      },
+      "id": "E6"
+    },
+    {
+      "questionId": "procedure",
+      "interactionId": "call-1",
+      "turn": 5,
+      "quote": "Сейчас у вас тариф Домашний сто, сто мегабит в секунду, абонентская плата семьсот сорок рублей в месяц.",
+      "note": "Оператор проверил и озвучил данные по договору.",
+      "verification": {
+        "level": "exact",
+        "turn": 5,
+        "from": 3,
+        "to": 20,
+        "similarity": 1,
+        "matched": "сейчас у вас тариф домашний сто сто мегабит в секунду абонентская плата семьсот сорок рублей в месяц",
+        "seek": 19.174
+      },
+      "id": "E7"
+    },
+    {
+      "questionId": "procedure",
+      "interactionId": "call-1",
+      "turn": 7,
+      "quote": "Есть тариф Базовый шестьдесят: шестьдесят мегабит, пятьсот двадцать рублей в месяц.",
+      "note": "Оператор предложил решение — альтернативный тариф.",
+      "verification": {
+        "level": "exact",
+        "turn": 7,
+        "from": 0,
+        "to": 11,
+        "similarity": 1,
+        "matched": "есть тариф базовый шестьдесят шестьдесят мегабит пятьсот двадцать рублей в месяц",
+        "seek": 32.009
+      },
+      "id": "E8"
+    },
+    {
+      "questionId": "procedure",
+      "interactionId": "call-1",
+      "turn": 11,
+      "quote": "Смена тарифа происходит с начала следующего расчётного периода, то есть с первого октября.",
+      "note": "Оператор сообщил срок вступления изменений.",
+      "verification": {
+        "level": "exact",
+        "turn": 11,
+        "from": 0,
+        "to": 13,
+        "similarity": 1,
+        "matched": "смена тарифа происходит с начала следующего расчетного периода то есть с первого октября",
+        "seek": 57.537
+      },
+      "id": "E9"
+    },
+    {
+      "questionId": "procedure",
+      "interactionId": "call-1",
+      "turn": 17,
+      "quote": "Смену тарифа я зафиксировала.",
+      "note": "Оператор подтвердил фиксацию действия — завершение обработки.",
+      "verification": {
+        "level": "exact",
+        "turn": 17,
+        "from": 0,
+        "to": 4,
+        "similarity": 1,
+        "matched": "смену тарифа я зафиксировала",
+        "seek": 97.714
+      },
+      "id": "E10"
+    },
+    {
+      "questionId": "empathy",
+      "interactionId": "call-1",
+      "turn": 3,
+      "quote": "Конечно, помогу. Назовите, пожалуйста, номер договора и фамилию владельца.",
+      "note": "Формальное подтверждение помощи без признания проблемы.",
+      "verification": {
+        "level": "exact",
+        "turn": 3,
+        "from": 0,
+        "to": 9,
+        "similarity": 1,
+        "matched": "конечно помогу назовите пожалуйста номер договора и фамилию владельца",
+        "seek": 9.213
+      },
+      "id": "E11"
+    },
+    {
+      "questionId": "empathy",
+      "interactionId": "call-1",
+      "turn": 7,
+      "quote": "Есть тариф Базовый шестьдесят: шестьдесят мегабит, пятьсот двадцать рублей в месяц.",
+      "note": "Предложение без уточнения потребностей или признания тяжести ситуации.",
+      "verification": {
+        "level": "exact",
+        "turn": 7,
+        "from": 0,
+        "to": 11,
+        "similarity": 1,
+        "matched": "есть тариф базовый шестьдесят шестьдесят мегабит пятьсот двадцать рублей в месяц",
+        "seek": 32.009
+      },
+      "id": "E12"
+    },
+    {
+      "questionId": "empathy",
+      "interactionId": "call-1",
+      "turn": 17,
+      "quote": "Смену тарифа я зафиксировала. Что-нибудь ещё подсказать?",
+      "note": "Формальное завершение без эмоционального сопровождения.",
+      "verification": {
+        "level": "exact",
+        "turn": 17,
+        "from": 0,
+        "to": 8,
+        "similarity": 1,
+        "matched": "смену тарифа я зафиксировала что нибудь еще подсказать",
+        "seek": 97.714
+      },
+      "id": "E13"
+    },
+    {
+      "questionId": "accuracy",
+      "interactionId": "call-1",
+      "turn": 11,
+      "quote": "Смена тарифа происходит с начала следующего расчётного периода, то есть с первого октября.",
+      "note": "Точная информация о дате смены тарифа.",
+      "verification": {
+        "level": "exact",
+        "turn": 11,
+        "from": 0,
+        "to": 13,
+        "similarity": 1,
+        "matched": "смена тарифа происходит с начала следующего расчетного периода то есть с первого октября",
+        "seek": 57.537
+      },
+      "id": "E14"
+    },
+    {
+      "questionId": "accuracy",
+      "interactionId": "call-1",
+      "turn": 13,
+      "quote": "Да, за сентябрь списано семьсот сорок рублей, перерасчёта за текущий месяц не будет.",
+      "note": "Точная информация о списании по старому тарифу.",
+      "verification": {
+        "level": "exact",
+        "turn": 13,
+        "from": 0,
+        "to": 13,
+        "similarity": 1,
+        "matched": "да за сентябрь списано семьсот сорок рублей перерасчета за текущий месяц не будет",
+        "seek": 69.191
+      },
+      "id": "E15"
+    },
+    {
+      "questionId": "accuracy",
+      "interactionId": "call-1",
+      "turn": 15,
+      "quote": "На телефон, который заканчивается на девяносто один, придёт эсэмэс с подтверждением.",
+      "note": "Точное уведомление о подтверждении через СМС.",
+      "verification": {
+        "level": "exact",
+        "turn": 15,
+        "from": 7,
+        "to": 18,
+        "similarity": 1,
+        "matched": "на телефон который заканчивается на девяносто один придет эсэмэс с подтверждением",
+        "seek": 84.448
+      },
+      "id": "E16"
+    },
+    {
+      "questionId": "accuracy",
+      "interactionId": "call-1",
+      "turn": 16,
+      "quote": "Пришло. Спасибо.",
+      "note": "Клиент подтвердил получение СМС — подтверждение точности обещания.",
+      "verification": {
+        "level": "exact",
+        "turn": 16,
+        "from": 0,
+        "to": 2,
+        "similarity": 1,
+        "matched": "пришло спасибо",
+        "seek": 95.917
+      },
+      "id": "E17"
+    },
+    {
+      "questionId": "resolved",
+      "interactionId": "call-1",
+      "turn": 10,
+      "quote": "Нет, телевидение не нужно. Давайте Базовый шестьдесят.",
+      "note": "Клиент принял решение о смене тарифа.",
+      "verification": {
+        "level": "exact",
+        "turn": 10,
+        "from": 0,
+        "to": 7,
+        "similarity": 1,
+        "matched": "нет телевидение не нужно давайте базовый шестьдесят",
+        "seek": 51.664
+      },
+      "id": "E18"
+    },
+    {
+      "questionId": "resolved",
+      "interactionId": "call-1",
+      "turn": 17,
+      "quote": "Смену тарифа я зафиксировала.",
+      "note": "Оператор подтвердила выполнение действия.",
+      "verification": {
+        "level": "exact",
+        "turn": 17,
+        "from": 0,
+        "to": 4,
+        "similarity": 1,
+        "matched": "смену тарифа я зафиксировала",
+        "seek": 97.714
+      },
+      "id": "E19"
+    },
+    {
+      "questionId": "resolved",
+      "interactionId": "call-1",
+      "turn": 18,
+      "quote": "Нет, спасибо, всё.",
+      "note": "Клиент подтвердил, что вопрос решён.",
+      "verification": {
+        "level": "exact",
+        "turn": 18,
+        "from": 0,
+        "to": 3,
+        "similarity": 1,
+        "matched": "нет спасибо все",
+        "seek": 101.843
+      },
+      "id": "E20"
+    },
+    {
+      "questionId": "promises",
+      "interactionId": "call-1",
+      "turn": 15,
+      "quote": "На телефон, который заканчивается на девяносто один, придёт эсэмэс с подтверждением.",
+      "note": "Оператор пообещал отправить СМС.",
+      "verification": {
+        "level": "exact",
+        "turn": 15,
+        "from": 7,
+        "to": 18,
+        "similarity": 1,
+        "matched": "на телефон который заканчивается на девяносто один придет эсэмэс с подтверждением",
+        "seek": 84.448
+      },
+      "id": "E21"
+    },
+    {
+      "questionId": "promises",
+      "interactionId": "call-1",
+      "turn": 16,
+      "quote": "Пришло. Спасибо.",
+      "note": "Клиент подтвердил получение СМС — обещание выполнено.",
+      "verification": {
+        "level": "exact",
+        "turn": 16,
+        "from": 0,
+        "to": 2,
+        "similarity": 1,
+        "matched": "пришло спасибо",
+        "seek": 95.917
+      },
+      "id": "E22"
+    },
+    {
+      "questionId": "promises",
+      "interactionId": "call-1",
+      "turn": 17,
+      "quote": "Смену тарифа я зафиксировала.",
+      "note": "Оператор подтвердила выполнение действия.",
+      "verification": {
+        "level": "exact",
+        "turn": 17,
+        "from": 0,
+        "to": 4,
+        "similarity": 1,
+        "matched": "смену тарифа я зафиксировала",
+        "seek": 97.714
+      },
+      "id": "E23"
+    },
+    {
+      "questionId": "closing",
+      "interactionId": "call-1",
+      "turn": 17,
+      "quote": "Смену тарифа я зафиксировала. Что-нибудь ещё подсказать?",
+      "note": "Оператор уточнил, остались ли вопросы.",
+      "verification": {
+        "level": "exact",
+        "turn": 17,
+        "from": 0,
+        "to": 8,
+        "similarity": 1,
+        "matched": "смену тарифа я зафиксировала что нибудь еще подсказать",
+        "seek": 97.714
+      },
+      "id": "E24"
+    },
+    {
+      "questionId": "closing",
+      "interactionId": "call-1",
+      "turn": 19,
+      "quote": "Спасибо за звонок, Андрей Павлович, всего доброго.",
+      "note": "Оператор попрощался.",
+      "verification": {
+        "level": "exact",
+        "turn": 19,
+        "from": 0,
+        "to": 7,
+        "similarity": 1,
+        "matched": "спасибо за звонок андрей павлович всего доброго",
+        "seek": 103.823
+      },
+      "id": "E25"
+    },
+    {
+      "questionId": "documented",
+      "interactionId": "call-1",
+      "turn": 17,
+      "quote": "Смену тарифа я зафиксировала.",
+      "note": "Оператор подтвердил документирование действия.",
+      "verification": {
+        "level": "exact",
+        "turn": 17,
+        "from": 0,
+        "to": 4,
+        "similarity": 1,
+        "matched": "смену тарифа я зафиксировала",
+        "seek": 97.714
+      },
+      "id": "E26"
+    }
+  ],
+  "rejectedQuotes": 0,
+  "case": {
+    "id": "tariff",
+    "title": "Смена тарифа",
+    "interactions": [
+      {
+        "id": "call-1",
+        "channel": "call",
+        "operator": "op-olga",
+        "startedAt": "2026-09-18T10:20:00+03:00",
+        "turns": [
+          {
+            "index": 1,
+            "role": "operator",
+            "start": 0.8,
+            "end": 4.26,
+            "at": null,
+            "text": "Компания «Кварта», специалист Ольга, добрый день.",
+            "words": null,
+            "overlap": false
+          },
+          {
+            "index": 2,
+            "role": "client",
+            "start": 4.658,
+            "end": 8.748,
+            "at": null,
+            "text": "Добрый день. Хочу сменить тариф на интернет, текущий стал дорогой.",
+            "words": null,
+            "overlap": false
+          },
+          {
+            "index": 3,
+            "role": "operator",
+            "start": 9.213,
+            "end": 14.181,
+            "at": null,
+            "text": "Конечно, помогу. Назовите, пожалуйста, номер договора и фамилию владельца.",
+            "words": null,
+            "overlap": false
+          },
+          {
+            "index": 4,
+            "role": "client",
+            "start": 14.616,
+            "end": 18.874,
+            "at": null,
+            "text": "Договор пять ноль три восемь восемь один два, фамилия Мельников.",
+            "words": null,
+            "overlap": false
+          },
+          {
+            "index": 5,
+            "role": "operator",
+            "start": 19.174,
+            "end": 27.903,
+            "at": null,
+            "text": "Спасибо, Андрей Павлович. Сейчас у вас тариф Домашний сто, сто мегабит в секунду, абонентская плата семьсот сорок рублей в месяц.",
+            "words": null,
+            "overlap": false
+          },
+          {
+            "index": 6,
+            "role": "client",
+            "start": 28.222,
+            "end": 31.55,
+            "at": null,
+            "text": "Да. А есть что-то дешевле, но чтобы не хуже?",
+            "words": null,
+            "overlap": false
+          },
+          {
+            "index": 7,
+            "role": "operator",
+            "start": 32.009,
+            "end": 41.277,
+            "at": null,
+            "text": "Есть тариф Базовый шестьдесят: шестьдесят мегабит, пятьсот двадцать рублей в месяц. Для просмотра видео и работы из дома этого обычно хватает.",
+            "words": null,
+            "overlap": false
+          },
+          {
+            "index": 8,
+            "role": "client",
+            "start": 41.523,
+            "end": 42.865,
+            "at": null,
+            "text": "А если с телевидением?",
+            "words": null,
+            "overlap": false
+          },
+          {
+            "index": 9,
+            "role": "operator",
+            "start": 43.311,
+            "end": 51.224,
+            "at": null,
+            "text": "Пакет Домашний плюс ТВ: двести мегабит и сто двадцать каналов за девятьсот девяносто рублей. Но это дороже текущего.",
+            "words": null,
+            "overlap": false
+          },
+          {
+            "index": 10,
+            "role": "client",
+            "start": 51.664,
+            "end": 57.177,
+            "at": null,
+            "text": "Нет, телевидение не нужно. Давайте Базовый шестьдесят. С какого числа он начнёт действовать?",
+            "words": null,
+            "overlap": false
+          },
+          {
+            "index": 11,
+            "role": "operator",
+            "start": 57.537,
+            "end": 66.515,
+            "at": null,
+            "text": "Смена тарифа происходит с начала следующего расчётного периода, то есть с первого октября. До конца сентября действует текущий тариф.",
+            "words": null,
+            "overlap": false
+          },
+          {
+            "index": 12,
+            "role": "client",
+            "start": 66.834,
+            "end": 68.878,
+            "at": null,
+            "text": "А платить за сентябрь по старой цене?",
+            "words": null,
+            "overlap": false
+          },
+          {
+            "index": 13,
+            "role": "operator",
+            "start": 69.191,
+            "end": 79.309,
+            "at": null,
+            "text": "Да, за сентябрь списано семьсот сорок рублей, перерасчёта за текущий месяц не будет. С первого октября спишется пятьсот двадцать рублей.",
+            "words": null,
+            "overlap": false
+          },
+          {
+            "index": 14,
+            "role": "client",
+            "start": 79.616,
+            "end": 84.094,
+            "at": null,
+            "text": "Понятно. И скорость сама поменяется, роутер перенастраивать не надо?",
+            "words": null,
+            "overlap": false
+          },
+          {
+            "index": 15,
+            "role": "operator",
+            "start": 84.448,
+            "end": 94.417,
+            "at": null,
+            "text": "Ничего перенастраивать не нужно, скорость изменится автоматически. На телефон, который заканчивается на девяносто один, придёт эсэмэс с подтверждением.",
+            "words": null,
+            "overlap": false
+          },
+          {
+            "index": 16,
+            "role": "client",
+            "start": 95.917,
+            "end": 97.345,
+            "at": null,
+            "text": "Пришло. Спасибо.",
+            "words": null,
+            "overlap": false
+          },
+          {
+            "index": 17,
+            "role": "operator",
+            "start": 97.714,
+            "end": 101.462,
+            "at": null,
+            "text": "Смену тарифа я зафиксировала. Что-нибудь ещё подсказать?",
+            "words": null,
+            "overlap": false
+          },
+          {
+            "index": 18,
+            "role": "client",
+            "start": 101.843,
+            "end": 103.334,
+            "at": null,
+            "text": "Нет, спасибо, всё.",
+            "words": null,
+            "overlap": false
+          },
+          {
+            "index": 19,
+            "role": "operator",
+            "start": 103.823,
+            "end": 107.217,
+            "at": null,
+            "text": "Спасибо за звонок, Андрей Павлович, всего доброго.",
+            "words": null,
+            "overlap": false
+          }
+        ]
+      }
+    ]
+  }
+}

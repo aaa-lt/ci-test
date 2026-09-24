@@ -1,0 +1,38 @@
+{
+  "case": "tariff",
+  "rubric": "default",
+  "rubricRevision": 0,
+  "answers": {
+    "greeting": {
+      "value": "yes"
+    },
+    "identification": {
+      "value": "yes"
+    },
+    "procedure": {
+      "value": "followed"
+    },
+    "empathy": {
+      "value": 4
+    },
+    "accuracy": {
+      "value": "correct"
+    },
+    "forbidden": {
+      "value": "no"
+    },
+    "resolved": {
+      "value": "resolved"
+    },
+    "promises": {
+      "value": "yes",
+      "note": "эсэмэс с подтверждением пришло во время звонка"
+    },
+    "closing": {
+      "value": "yes"
+    },
+    "documented": {
+      "value": "yes"
+    }
+  }
+}

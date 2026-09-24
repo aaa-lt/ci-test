@@ -1,0 +1,118 @@
+# The 8B models under llama-server on a GitHub runner, same Q4_K_M quantization for both.
+# Weights download on GitHub's side. The pipeline runs against the local OpenAI-compatible
+# endpoint with json_schema response_format, which llama-server turns into a grammar
+# (check 4 for a local runtime). Results are committed back to results/.
+name: llm
+
+on:
+  workflow_dispatch:
+    inputs:
+      models:
+        description: Comma-separated, from local-t-lite,local-qwen3-8b
+        default: local-t-lite,local-qwen3-8b
+      engine:
+        description: Transcript engine for calls (reference, yandex, gigaam-rnnt, ...)
+        default: yandex
+      scheme:
+        description: b2 or b2-np
+        default: b2
+      cases:
+        description: Comma-separated cases, empty for all
+        default: ""
+
+permissions:
+  contents: write
+
+jobs:
+  tokenizers:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v6
+      - run: uv run tools/compare_tokenizers.py
+      - name: Commit results
+        run: |
+          git config user.name "$(git log -1 --format=%an)"
+          git config user.email "$(git log -1 --format=%ae)"
+          git add results/llm/tokenizers.json
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m "Add tokenizer comparison"
+          for i in 1 2 3 4 5; do git pull --rebase && git push && break; sleep $((i * 10)); done
+
+  llm:
+    runs-on: ubuntu-latest
+    timeout-minutes: 350
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - model: local-t-lite
+            gguf: https://huggingface.co/t-tech/T-lite-it-2.1-GGUF/resolve/main/T-lite-it-2.1-Q4_K_M.gguf
+          - model: local-qwen3-8b
+            gguf: https://huggingface.co/Qwen/Qwen3-8B-GGUF/resolve/main/Qwen3-8B-Q4_K_M.gguf
+    steps:
+      - name: Skip models not requested
+        id: want
+        run: echo "run=${{ contains(format(',{0},', inputs.models), format(',{0},', matrix.model)) }}" >> "$GITHUB_OUTPUT"
+
+      - uses: actions/checkout@v4
+        if: steps.want.outputs.run == 'true'
+
+      - name: llama.cpp release build
+        if: steps.want.outputs.run == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release download -R ggml-org/llama.cpp --pattern '*-bin-ubuntu-x64.zip' --dir /tmp/llama
+          unzip -q /tmp/llama/*.zip -d /tmp/llama
+          server=$(find /tmp/llama -name llama-server -type f | head -1)
+          echo "LLAMA_SERVER=$server" >> "$GITHUB_ENV"
+          echo "LD_LIBRARY_PATH=$(dirname "$server")" >> "$GITHUB_ENV"
+          "$server" --version
+
+      - name: Weights
+        if: steps.want.outputs.run == 'true'
+        run: curl -sSL --fail -o /tmp/model.gguf "${{ matrix.gguf }}" && ls -l /tmp/model.gguf
+
+      - name: Start llama-server
+        if: steps.want.outputs.run == 'true'
+        run: |
+          # 7 GB runner: 5 GB weights + q8_0 KV cache for a 12k context
+          nohup "$LLAMA_SERVER" -m /tmp/model.gguf --jinja -c 12288 -np 1 -fa on -ctk q8_0 -ctv q8_0 \
+            --port 8080 > /tmp/llama.log 2>&1 &
+          for i in $(seq 1 120); do curl -sf localhost:8080/health && break; sleep 5; done
+          curl -sf localhost:8080/health
+
+      - uses: actions/setup-node@v4
+        if: steps.want.outputs.run == 'true'
+        with:
+          node-version: 22
+
+      - name: Pipeline dependencies
+        if: steps.want.outputs.run == 'true'
+        working-directory: pipeline
+        run: corepack enable && pnpm install --frozen-lockfile
+
+      - name: Evaluate
+        if: steps.want.outputs.run == 'true'
+        working-directory: pipeline
+        env:
+          LOCAL_LLM_URL: http://127.0.0.1:8080/v1
+        run: |
+          cases="${{ inputs.cases }}"
+          pnpm eval --model ${{ matrix.model }} --engine ${{ inputs.engine }} --scheme ${{ inputs.scheme }} \
+            --run ci-${{ matrix.model }}-${{ inputs.engine }}-${{ inputs.scheme }} ${cases:+--cases "$cases"}
+
+      - name: Server log tail
+        if: always() && steps.want.outputs.run == 'true'
+        run: tail -50 /tmp/llama.log || true
+
+      - name: Commit results
+        if: always() && steps.want.outputs.run == 'true'
+        run: |
+          git config user.name "$(git log -1 --format=%an)"
+          git config user.email "$(git log -1 --format=%ae)"
+          git add results/runs || true
+          if git diff --cached --quiet; then echo "nothing new"; exit 0; fi
+          git commit -m "Add ${{ matrix.model }} runs on ${{ inputs.engine }} transcripts"
+          for i in 1 2 3 4 5; do git pull --rebase && git push && break; sleep $((i * 10)); done

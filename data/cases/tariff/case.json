@@ -1,0 +1,14 @@
+{
+  "id": "tariff",
+  "title": "Смена тарифа",
+  "interactions": [
+    {
+      "id": "call-1",
+      "channel": "call",
+      "operator": "op-olga",
+      "startedAt": "2026-09-18T10:20:00+03:00",
+      "call": "tariff-call",
+      "stereo": { "left": "operator", "right": "client" }
+    }
+  ]
+}

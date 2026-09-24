@@ -1,0 +1,38 @@
+{
+  "case": "move",
+  "rubric": "default",
+  "rubricRevision": 0,
+  "answers": {
+    "greeting": {
+      "value": "yes"
+    },
+    "identification": {
+      "value": "yes"
+    },
+    "procedure": {
+      "value": "followed"
+    },
+    "empathy": {
+      "value": 4
+    },
+    "accuracy": {
+      "value": "correct"
+    },
+    "forbidden": {
+      "value": "no"
+    },
+    "resolved": {
+      "value": "resolved"
+    },
+    "promises": {
+      "value": null,
+      "note": "обещание «мастер позвонит за час» относится к будущему; по обращению не проверяется, ожидается отказ"
+    },
+    "closing": {
+      "value": "yes"
+    },
+    "documented": {
+      "value": "yes"
+    }
+  }
+}

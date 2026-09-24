@@ -1,0 +1,14 @@
+{
+  "id": "move",
+  "title": "Перенос подключения",
+  "interactions": [
+    {
+      "id": "call-1",
+      "channel": "call",
+      "operator": "op-victoria",
+      "startedAt": "2026-09-21T12:10:00+03:00",
+      "call": "move-call",
+      "stereo": { "left": "operator", "right": "client" }
+    }
+  ]
+}

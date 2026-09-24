@@ -1,0 +1,43 @@
+{
+  "checked": "2026-09-24",
+  "router": "https://router.huggingface.co/v1",
+  "temperature": 0,
+  "results": [
+    {
+      "model": "t-tech/T-lite-it-2.1:featherless-ai",
+      "prompt": "Повтори дословно: Компания «Кварта», меня зовут Анна. Здравствуйте, чем могу помочь?",
+      "status": 200,
+      "answer": "_xt «Кварта», меня зовут Анна. Здравствуйте, чем могу变压器?"
+    },
+    {
+      "model": "t-tech/T-lite-it-2.1:featherless-ai",
+      "prompt": "Повтори дословно: Номер вашей заявки на перерасчёт: два девять ноль пять один шесть.",
+      "status": 200,
+      "answer": "Номер вашей заявки на перерасчёт: два\\Page ноль少见 один מקרה."
+    },
+    {
+      "model": "t-tech/T-lite-it-2.1:featherless-ai",
+      "prompt": "Сколько будет два плюс два? Ответь одним словом.",
+      "status": 200,
+      "answer": "(ПравDefaultValue ответ: **чет_Texture**.)"
+    },
+    {
+      "model": "Qwen/Qwen3-8B:nscale",
+      "prompt": "Повтори дословно: Компания «Кварта», меня зовут Анна. Здравствуйте, чем могу помочь?",
+      "status": 200,
+      "answer": null
+    },
+    {
+      "model": "Qwen/Qwen3-8B:nscale",
+      "prompt": "Повтори дословно: Номер вашей заявки на перерасчёт: два девять ноль пять один шесть.",
+      "status": 402,
+      "answer": "{\"error\":\"You have depleted your monthly included credits. Purchase pre-paid credits to continue using Inference Providers. Alternatively, subscribe to PRO to get 20x more included usage.\"}"
+    },
+    {
+      "model": "Qwen/Qwen3-8B:nscale",
+      "prompt": "Сколько будет два плюс два? Ответь одним словом.",
+      "status": 200,
+      "answer": null
+    }
+  ]
+}

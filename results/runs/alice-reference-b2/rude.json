@@ -1,0 +1,628 @@
+{
+  "key": {
+    "runId": "alice-reference-b2",
+    "caseId": "rude",
+    "scheme": "b2",
+    "model": "yandex-alice",
+    "providerModel": "gpt://{folder}/aliceai-llm",
+    "engine": "reference",
+    "rubric": "default",
+    "rubricRevision": 0,
+    "promptVersion": "b2-v2",
+    "decoding": {
+      "temperature": 0,
+      "structured": "json_schema"
+    },
+    "options": {
+      "verify": true,
+      "maxAttempts": 3,
+      "fuzzyThreshold": 0.8
+    }
+  },
+  "seconds": 11.1,
+  "score": {
+    "sections": [
+      {
+        "id": "opening",
+        "score": 0.5,
+        "answered": 2,
+        "unanswered": 0
+      },
+      {
+        "id": "conduct",
+        "score": 0.375,
+        "answered": 4,
+        "unanswered": 0
+      },
+      {
+        "id": "outcome",
+        "score": 0.5,
+        "answered": 3,
+        "unanswered": 1
+      }
+    ],
+    "total": 0,
+    "incomplete": true,
+    "autoFail": "forbidden",
+    "unanswered": 1,
+    "priority": 14,
+    "priorityRule": {
+      "deficit": 10,
+      "autoFail": 5,
+      "unanswered": 1,
+      "rejected": 0.2
+    }
+  },
+  "answers": [
+    {
+      "questionId": "greeting",
+      "status": "answered",
+      "value": "no",
+      "reasoning": "В первой реплике оператора нет приветствия и представления, он просто говорит «Слушаю»",
+      "evidence": [
+        "E1"
+      ],
+      "attempts": 1
+    },
+    {
+      "questionId": "identification",
+      "status": "answered",
+      "value": "yes",
+      "reasoning": "Оператор запросил номер договора, и клиент его предоставил",
+      "evidence": [
+        "E2",
+        "E3"
+      ],
+      "attempts": 1
+    },
+    {
+      "questionId": "procedure",
+      "status": "answered",
+      "value": "partial",
+      "reasoning": "Оператор проверил данные в системе и выполнил действие по запросу клиента (поставил пометку), но дал расплывчатый ответ о сроках, не учитывающий, что три дня уже прошли — пропущен чёткий этап информирования о сроках",
+      "evidence": [
+        "E4",
+        "E5",
+        "E6"
+      ],
+      "attempts": 1
+    },
+    {
+      "questionId": "empathy",
+      "status": "answered",
+      "value": "1",
+      "reasoning": "Оператор перекладывает ответственность («это не мои проблемы») и общается формально, с отстранённым тоном и обращением «мужчина»",
+      "evidence": [
+        "E7",
+        "E8"
+      ],
+      "attempts": 1
+    },
+    {
+      "questionId": "accuracy",
+      "status": "answered",
+      "value": "correct",
+      "reasoning": "Предоставленная оператором информация о статусе заявки и процедуре перерасчёта соответствует действительности",
+      "evidence": [
+        "E9",
+        "E10"
+      ],
+      "attempts": 1
+    },
+    {
+      "questionId": "forbidden",
+      "status": "answered",
+      "value": "yes",
+      "reasoning": "Оператор использовал запрещённые формулировки: перекладывание ответственности («это не мои проблемы») и обращение «мужчина»",
+      "evidence": [
+        "E11",
+        "E12"
+      ],
+      "attempts": 1
+    },
+    {
+      "questionId": "resolved",
+      "status": "answered",
+      "value": "partial",
+      "reasoning": "Основная проблема клиента (отсутствие интернета) не решена, перерасчёт пока невозможен, выполнено только частичное действие — заявка помечена как срочная",
+      "evidence": [
+        "E13",
+        "E14",
+        "E15"
+      ],
+      "attempts": 1
+    },
+    {
+      "questionId": "promises",
+      "status": "unanswered",
+      "value": null,
+      "reasoning": "В взаимодействиях нет зафиксированных обещаний со стороны оператора",
+      "evidence": [],
+      "attempts": 1
+    },
+    {
+      "questionId": "closing",
+      "status": "answered",
+      "value": "no",
+      "reasoning": "В доказательствах нет информации о том, как был завершён разговор: не зафиксировано ни уточнения о наличии вопросов, ни прощания со стороны оператора",
+      "evidence": [
+        "E1",
+        "E2",
+        "E3",
+        "E4",
+        "E5",
+        "E6",
+        "E7",
+        "E8",
+        "E9",
+        "E10",
+        "E11",
+        "E12",
+        "E13",
+        "E14",
+        "E15",
+        "E16"
+      ],
+      "attempts": 2
+    },
+    {
+      "questionId": "documented",
+      "status": "answered",
+      "value": "yes",
+      "reasoning": "Оператор сообщил, что поставила пометку — то есть зафиксировала дополнительное требование клиента",
+      "evidence": [
+        "E16"
+      ],
+      "attempts": 1
+    }
+  ],
+  "evidence": [
+    {
+      "questionId": "greeting",
+      "interactionId": "call-1",
+      "turn": 1,
+      "quote": "Слушаю.",
+      "note": "Оператор не поздоровался",
+      "verification": {
+        "level": "exact",
+        "turn": 1,
+        "from": 0,
+        "to": 1,
+        "similarity": 1,
+        "matched": "слушаю",
+        "seek": 0.8
+      },
+      "id": "E1"
+    },
+    {
+      "questionId": "identification",
+      "interactionId": "call-1",
+      "turn": 3,
+      "quote": "Номер договора.",
+      "note": "Оператор запросил идентификатор клиента",
+      "verification": {
+        "level": "exact",
+        "turn": 3,
+        "from": 0,
+        "to": 2,
+        "similarity": 1,
+        "matched": "номер договора",
+        "seek": 11.039
+      },
+      "id": "E2"
+    },
+    {
+      "questionId": "identification",
+      "interactionId": "call-1",
+      "turn": 4,
+      "quote": "Шесть шесть один ноль четыре девять три.",
+      "note": "Клиент предоставил номер договора",
+      "verification": {
+        "level": "exact",
+        "turn": 4,
+        "from": 0,
+        "to": 7,
+        "similarity": 1,
+        "matched": "шесть шесть один ноль четыре девять три",
+        "seek": 12.871
+      },
+      "id": "E3"
+    },
+    {
+      "questionId": "procedure",
+      "interactionId": "call-1",
+      "turn": 5,
+      "quote": "Заявка на выезд мастера есть, от четырнадцатого сентября. Статус «в очереди».",
+      "note": "Оператор проверил данные в системе",
+      "verification": {
+        "level": "exact",
+        "turn": 5,
+        "from": 0,
+        "to": 11,
+        "similarity": 1,
+        "matched": "заявка на выезд мастера есть от четырнадцатого сентября статус в очереди",
+        "seek": 19.312
+      },
+      "id": "E4"
+    },
+    {
+      "questionId": "procedure",
+      "interactionId": "call-1",
+      "turn": 11,
+      "quote": "Не знаю. Обычно в течение трёх дней.",
+      "note": "Расплывчатый ответ о сроках, не учитывающий, что три дня уже прошли",
+      "verification": {
+        "level": "exact",
+        "turn": 11,
+        "from": 0,
+        "to": 7,
+        "similarity": 1,
+        "matched": "не знаю обычно в течение трех дней",
+        "seek": 48.573
+      },
+      "id": "E5"
+    },
+    {
+      "questionId": "procedure",
+      "interactionId": "call-1",
+      "turn": 13,
+      "quote": "Поставила пометку.",
+      "note": "Оператор выполнил действие по запросу клиента — поставил пометку о срочности",
+      "verification": {
+        "level": "exact",
+        "turn": 13,
+        "from": 0,
+        "to": 2,
+        "similarity": 1,
+        "matched": "поставила пометку",
+        "seek": 57.874
+      },
+      "id": "E6"
+    },
+    {
+      "questionId": "empathy",
+      "interactionId": "call-1",
+      "turn": 7,
+      "quote": "Мастера распределяет другой отдел, это не мои проблемы.",
+      "note": "Перекладывание ответственности, отсутствие эмпатии",
+      "verification": {
+        "level": "exact",
+        "turn": 7,
+        "from": 0,
+        "to": 8,
+        "similarity": 1,
+        "matched": "мастера распределяет другой отдел это не мои проблемы",
+        "seek": 30.668
+      },
+      "id": "E7"
+    },
+    {
+      "questionId": "empathy",
+      "interactionId": "call-1",
+      "turn": 9,
+      "quote": "Мужчина, я вам уже объяснила. Ждите звонка от мастера.",
+      "note": "Обращение «мужчина» и формальный, отстранённый тон",
+      "verification": {
+        "level": "exact",
+        "turn": 9,
+        "from": 0,
+        "to": 9,
+        "similarity": 1,
+        "matched": "мужчина я вам уже объяснила ждите звонка от мастера",
+        "seek": 40.211
+      },
+      "id": "E8"
+    },
+    {
+      "questionId": "accuracy",
+      "interactionId": "call-1",
+      "turn": 5,
+      "quote": "Заявка на выезд мастера есть, от четырнадцатого сентября. Статус «в очереди».",
+      "note": "Информация о статусе заявки соответствует действительности",
+      "verification": {
+        "level": "exact",
+        "turn": 5,
+        "from": 0,
+        "to": 11,
+        "similarity": 1,
+        "matched": "заявка на выезд мастера есть от четырнадцатого сентября статус в очереди",
+        "seek": 19.312
+      },
+      "id": "E9"
+    },
+    {
+      "questionId": "accuracy",
+      "interactionId": "call-1",
+      "turn": 15,
+      "quote": "Перерасчёт делается после восстановления связи, по заявлению.",
+      "note": "Корректно описана процедура перерасчёта",
+      "verification": {
+        "level": "exact",
+        "turn": 15,
+        "from": 0,
+        "to": 7,
+        "similarity": 1,
+        "matched": "перерасчет делается после восстановления связи по заявлению",
+        "seek": 63.404
+      },
+      "id": "E10"
+    },
+    {
+      "questionId": "forbidden",
+      "interactionId": "call-1",
+      "turn": 7,
+      "quote": "Мастера распределяет другой отдел, это не мои проблемы.",
+      "note": "Перекладывание ответственности — запрещённая формулировка",
+      "verification": {
+        "level": "exact",
+        "turn": 7,
+        "from": 0,
+        "to": 8,
+        "similarity": 1,
+        "matched": "мастера распределяет другой отдел это не мои проблемы",
+        "seek": 30.668
+      },
+      "id": "E11"
+    },
+    {
+      "questionId": "forbidden",
+      "interactionId": "call-1",
+      "turn": 9,
+      "quote": "Мужчина, я вам уже объяснила. Ждите звонка от мастера.",
+      "note": "Обращение «мужчина» — запрещённая формулировка",
+      "verification": {
+        "level": "exact",
+        "turn": 9,
+        "from": 0,
+        "to": 9,
+        "similarity": 1,
+        "matched": "мужчина я вам уже объяснила ждите звонка от мастера",
+        "seek": 40.211
+      },
+      "id": "E12"
+    },
+    {
+      "questionId": "resolved",
+      "interactionId": "call-1",
+      "turn": 13,
+      "quote": "Поставила пометку.",
+      "note": "Выполнено частичное действие по запросу клиента — заявка помечена как срочная",
+      "verification": {
+        "level": "exact",
+        "turn": 13,
+        "from": 0,
+        "to": 2,
+        "similarity": 1,
+        "matched": "поставила пометку",
+        "seek": 57.874
+      },
+      "id": "E13"
+    },
+    {
+      "questionId": "resolved",
+      "interactionId": "call-1",
+      "turn": 15,
+      "quote": "Перерасчёт делается после восстановления связи, по заявлению.",
+      "note": "Перерасчёт пока не выполнен, так как связь не восстановлена",
+      "verification": {
+        "level": "exact",
+        "turn": 15,
+        "from": 0,
+        "to": 7,
+        "similarity": 1,
+        "matched": "перерасчет делается после восстановления связи по заявлению",
+        "seek": 63.404
+      },
+      "id": "E14"
+    },
+    {
+      "questionId": "resolved",
+      "interactionId": "call-1",
+      "turn": 6,
+      "quote": "Третий день в очереди? Я работаю из дома, мне интернет нужен сегодня.",
+      "note": "Основная проблема клиента — отсутствие интернета — не решена",
+      "verification": {
+        "level": "exact",
+        "turn": 6,
+        "from": 0,
+        "to": 12,
+        "similarity": 1,
+        "matched": "третий день в очереди я работаю из дома мне интернет нужен сегодня",
+        "seek": 26.055
+      },
+      "id": "E15"
+    },
+    {
+      "questionId": "documented",
+      "interactionId": "call-1",
+      "turn": 13,
+      "quote": "Поставила пометку.",
+      "note": "Оператор зафиксировал дополнительное требование клиента — пометку о срочности заявки",
+      "verification": {
+        "level": "exact",
+        "turn": 13,
+        "from": 0,
+        "to": 2,
+        "similarity": 1,
+        "matched": "поставила пометку",
+        "seek": 57.874
+      },
+      "id": "E16"
+    }
+  ],
+  "rejectedQuotes": 0,
+  "case": {
+    "id": "rude",
+    "title": "Мастер не приехал",
+    "interactions": [
+      {
+        "id": "call-1",
+        "channel": "call",
+        "operator": "op-unknown",
+        "startedAt": "2026-09-17T16:42:00+03:00",
+        "turns": [
+          {
+            "index": 1,
+            "role": "operator",
+            "start": 0.8,
+            "end": 1.76,
+            "at": null,
+            "text": "Слушаю.",
+            "words": null,
+            "overlap": false
+          },
+          {
+            "index": 2,
+            "role": "client",
+            "start": 2.101,
+            "end": 10.641,
+            "at": null,
+            "text": "Здравствуйте. У меня третий день не работает интернет. Я уже дважды звонил, мне сказали, что приедет мастер, но никто не приехал.",
+            "words": null,
+            "overlap": false
+          },
+          {
+            "index": 3,
+            "role": "operator",
+            "start": 11.039,
+            "end": 12.498,
+            "at": null,
+            "text": "Номер договора.",
+            "words": null,
+            "overlap": false
+          },
+          {
+            "index": 4,
+            "role": "client",
+            "start": 12.871,
+            "end": 16.312,
+            "at": null,
+            "text": "Шесть шесть один ноль четыре девять три.",
+            "words": null,
+            "overlap": false
+          },
+          {
+            "index": 5,
+            "role": "operator",
+            "start": 19.312,
+            "end": 25.798,
+            "at": null,
+            "text": "Заявка на выезд мастера есть, от четырнадцатого сентября. Статус «в очереди».",
+            "words": null,
+            "overlap": false
+          },
+          {
+            "index": 6,
+            "role": "client",
+            "start": 26.055,
+            "end": 30.395,
+            "at": null,
+            "text": "Третий день в очереди? Я работаю из дома, мне интернет нужен сегодня.",
+            "words": null,
+            "overlap": false
+          },
+          {
+            "index": 7,
+            "role": "operator",
+            "start": 30.668,
+            "end": 34.915,
+            "at": null,
+            "text": "Мастера распределяет другой отдел, это не мои проблемы.",
+            "words": null,
+            "overlap": false
+          },
+          {
+            "index": 8,
+            "role": "client",
+            "start": 35.308,
+            "end": 40.711,
+            "at": null,
+            "text": "Как это не ваши? Вы же компания, я вам плачу шестьсот пятьдесят рублей каждый месяц.",
+            "words": null,
+            "overlap": true
+          },
+          {
+            "index": 9,
+            "role": "operator",
+            "start": 40.211,
+            "end": 44.913,
+            "at": null,
+            "text": "Мужчина, я вам уже объяснила. Ждите звонка от мастера.",
+            "words": null,
+            "overlap": true
+          },
+          {
+            "index": 10,
+            "role": "client",
+            "start": 45.124,
+            "end": 48.191,
+            "at": null,
+            "text": "А когда он позвонит? Можно хотя бы примерное время?",
+            "words": null,
+            "overlap": false
+          },
+          {
+            "index": 11,
+            "role": "operator",
+            "start": 48.573,
+            "end": 51.828,
+            "at": null,
+            "text": "Не знаю. Обычно в течение трёх дней.",
+            "words": null,
+            "overlap": false
+          },
+          {
+            "index": 12,
+            "role": "client",
+            "start": 52.205,
+            "end": 55.874,
+            "at": null,
+            "text": "Три дня уже прошли. Можете хотя бы пометить заявку как срочную?",
+            "words": null,
+            "overlap": false
+          },
+          {
+            "index": 13,
+            "role": "operator",
+            "start": 57.874,
+            "end": 59.351,
+            "at": null,
+            "text": "Поставила пометку.",
+            "words": null,
+            "overlap": false
+          },
+          {
+            "index": 14,
+            "role": "client",
+            "start": 59.659,
+            "end": 63.13,
+            "at": null,
+            "text": "И сделайте, пожалуйста, перерасчёт за дни без интернета.",
+            "words": null,
+            "overlap": false
+          },
+          {
+            "index": 15,
+            "role": "operator",
+            "start": 63.404,
+            "end": 67.879,
+            "at": null,
+            "text": "Перерасчёт делается после восстановления связи, по заявлению.",
+            "words": null,
+            "overlap": false
+          },
+          {
+            "index": 16,
+            "role": "client",
+            "start": 68.147,
+            "end": 69.97,
+            "at": null,
+            "text": "Ладно. Спасибо и на этом.",
+            "words": null,
+            "overlap": false
+          }
+        ]
+      }
+    ]
+  }
+}

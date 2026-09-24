@@ -1,0 +1,18 @@
+.env
+.DS_Store
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+.pytest_cache/
+.ruff_cache/
+
+# Node
+node_modules/
+dist/
+*.tsbuildinfo
+
+# Raw synthesis output; only the assembled telephone-quality calls are kept
+data/audio/raw/
+results/tmp/

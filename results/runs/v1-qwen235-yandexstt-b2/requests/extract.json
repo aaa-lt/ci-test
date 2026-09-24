@@ -1,0 +1,424 @@
+{
+  "model": "gpt://{folder}/qwen3-235b-a22b-fp8",
+  "max_tokens": 6000,
+  "temperature": 0,
+  "response_format": {
+    "type": "json_schema",
+    "json_schema": {
+      "schema": {
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        "properties": {
+          "greeting": {
+            "type": "object",
+            "properties": {
+              "reasoning": {
+                "type": "string"
+              },
+              "evidence": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "turn": {
+                      "type": "integer",
+                      "minimum": 1,
+                      "maximum": 10
+                    },
+                    "quote": {
+                      "type": "string"
+                    },
+                    "note": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "turn",
+                    "quote",
+                    "note"
+                  ],
+                  "additionalProperties": false
+                }
+              }
+            },
+            "required": [
+              "reasoning",
+              "evidence"
+            ],
+            "additionalProperties": false
+          },
+          "identification": {
+            "type": "object",
+            "properties": {
+              "reasoning": {
+                "type": "string"
+              },
+              "evidence": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "turn": {
+                      "type": "integer",
+                      "minimum": 1,
+                      "maximum": 10
+                    },
+                    "quote": {
+                      "type": "string"
+                    },
+                    "note": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "turn",
+                    "quote",
+                    "note"
+                  ],
+                  "additionalProperties": false
+                }
+              }
+            },
+            "required": [
+              "reasoning",
+              "evidence"
+            ],
+            "additionalProperties": false
+          },
+          "procedure": {
+            "type": "object",
+            "properties": {
+              "reasoning": {
+                "type": "string"
+              },
+              "evidence": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "turn": {
+                      "type": "integer",
+                      "minimum": 1,
+                      "maximum": 10
+                    },
+                    "quote": {
+                      "type": "string"
+                    },
+                    "note": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "turn",
+                    "quote",
+                    "note"
+                  ],
+                  "additionalProperties": false
+                }
+              }
+            },
+            "required": [
+              "reasoning",
+              "evidence"
+            ],
+            "additionalProperties": false
+          },
+          "empathy": {
+            "type": "object",
+            "properties": {
+              "reasoning": {
+                "type": "string"
+              },
+              "evidence": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "turn": {
+                      "type": "integer",
+                      "minimum": 1,
+                      "maximum": 10
+                    },
+                    "quote": {
+                      "type": "string"
+                    },
+                    "note": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "turn",
+                    "quote",
+                    "note"
+                  ],
+                  "additionalProperties": false
+                }
+              }
+            },
+            "required": [
+              "reasoning",
+              "evidence"
+            ],
+            "additionalProperties": false
+          },
+          "accuracy": {
+            "type": "object",
+            "properties": {
+              "reasoning": {
+                "type": "string"
+              },
+              "evidence": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "turn": {
+                      "type": "integer",
+                      "minimum": 1,
+                      "maximum": 10
+                    },
+                    "quote": {
+                      "type": "string"
+                    },
+                    "note": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "turn",
+                    "quote",
+                    "note"
+                  ],
+                  "additionalProperties": false
+                }
+              }
+            },
+            "required": [
+              "reasoning",
+              "evidence"
+            ],
+            "additionalProperties": false
+          },
+          "forbidden": {
+            "type": "object",
+            "properties": {
+              "reasoning": {
+                "type": "string"
+              },
+              "evidence": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "turn": {
+                      "type": "integer",
+                      "minimum": 1,
+                      "maximum": 10
+                    },
+                    "quote": {
+                      "type": "string"
+                    },
+                    "note": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "turn",
+                    "quote",
+                    "note"
+                  ],
+                  "additionalProperties": false
+                }
+              }
+            },
+            "required": [
+              "reasoning",
+              "evidence"
+            ],
+            "additionalProperties": false
+          },
+          "resolved": {
+            "type": "object",
+            "properties": {
+              "reasoning": {
+                "type": "string"
+              },
+              "evidence": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "turn": {
+                      "type": "integer",
+                      "minimum": 1,
+                      "maximum": 10
+                    },
+                    "quote": {
+                      "type": "string"
+                    },
+                    "note": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "turn",
+                    "quote",
+                    "note"
+                  ],
+                  "additionalProperties": false
+                }
+              }
+            },
+            "required": [
+              "reasoning",
+              "evidence"
+            ],
+            "additionalProperties": false
+          },
+          "promises": {
+            "type": "object",
+            "properties": {
+              "reasoning": {
+                "type": "string"
+              },
+              "evidence": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "turn": {
+                      "type": "integer",
+                      "minimum": 1,
+                      "maximum": 10
+                    },
+                    "quote": {
+                      "type": "string"
+                    },
+                    "note": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "turn",
+                    "quote",
+                    "note"
+                  ],
+                  "additionalProperties": false
+                }
+              }
+            },
+            "required": [
+              "reasoning",
+              "evidence"
+            ],
+            "additionalProperties": false
+          },
+          "closing": {
+            "type": "object",
+            "properties": {
+              "reasoning": {
+                "type": "string"
+              },
+              "evidence": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "turn": {
+                      "type": "integer",
+                      "minimum": 1,
+                      "maximum": 10
+                    },
+                    "quote": {
+                      "type": "string"
+                    },
+                    "note": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "turn",
+                    "quote",
+                    "note"
+                  ],
+                  "additionalProperties": false
+                }
+              }
+            },
+            "required": [
+              "reasoning",
+              "evidence"
+            ],
+            "additionalProperties": false
+          },
+          "documented": {
+            "type": "object",
+            "properties": {
+              "reasoning": {
+                "type": "string"
+              },
+              "evidence": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "turn": {
+                      "type": "integer",
+                      "minimum": 1,
+                      "maximum": 10
+                    },
+                    "quote": {
+                      "type": "string"
+                    },
+                    "note": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "turn",
+                    "quote",
+                    "note"
+                  ],
+                  "additionalProperties": false
+                }
+              }
+            },
+            "required": [
+              "reasoning",
+              "evidence"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "required": [
+          "greeting",
+          "identification",
+          "procedure",
+          "empathy",
+          "accuracy",
+          "forbidden",
+          "resolved",
+          "promises",
+          "closing",
+          "documented"
+        ],
+        "additionalProperties": false
+      },
+      "strict": true,
+      "name": "evidence"
+    }
+  },
+  "chat_template_kwargs": {
+    "enable_thinking": false
+  },
+  "messages": [
+    {
+      "role": "system",
+      "content": "Ты специалист по контролю качества обслуживания в контакт-центре.\nТебе дают одно взаимодействие клиента с компанией и вопросы оценочной рубрики. Отвечать на вопросы не нужно. Нужно найти в этом взаимодействии фрагменты, по которым на вопросы можно ответить: и подтверждающие, и опровергающие.\n\nПравила цитирования:\n- Цитата — дословный фрагмент одной реплики длиной от двух до тридцати слов. Копируй его без изменений, даже если в тексте ошибки распознавания речи или нет знаков препинания.\n- Не пересказывай, не исправляй, не соединяй фрагменты разных реплик.\n- В поле turn укажи номер реплики из квадратных скобок, из которой взята цитата.\n- В поле note кратко напиши, что показывает фрагмент применительно к вопросу.\n- Если во взаимодействии нет ничего, относящегося к вопросу, верни пустой список evidence.\n\nДля каждого вопроса сначала напиши в reasoning одно–три предложения о том, что в этом взаимодействии относится к вопросу, затем перечисли фрагменты.\n\nОтвет — один JSON-объект. Ключи — идентификаторы вопросов, значения — объекты вида\n{\"reasoning\": \"...\", \"evidence\": [{\"turn\": 3, \"quote\": \"...\", \"note\": \"...\"}]}."
+    },
+    {
+      "role": "user",
+      "content": "Взаимодействие chat-1: переписка в чате, 2026-09-11T09:12:40+03:00, оператор op-dmitry.\n\n[1] Клиент (2026-09-11T09:12:40+03:00): Здравствуйте. Вчера звонил по поводу списания за Кинопакет, мне обещали перезвонить до шести вечера и не перезвонили.\n[2] Оператор (2026-09-11T09:14:05+03:00): Здравствуйте! Меня зовут Дмитрий. Приношу извинения, что вам не перезвонили. Подскажите, пожалуйста, номер договора или номер заявки.\n[3] Клиент (2026-09-11T09:15:31+03:00): Заявка 290516\n[4] Оператор (2026-09-11T09:17:02+03:00): Спасибо. Вижу заявку на перерасчёт за услугу «Кинопакет плюс», она в работе. Запрос в техническую службу тоже вижу, ответ по нему уже есть.\n[5] Клиент (2026-09-11T09:18:10+03:00): И что техслужба? Мне так никто и не объяснил, как это подключилось.\n[6] Оператор (2026-09-11T09:22:47+03:00): По журналу приставки подключение 12 июля выполнено через меню приставки. Установить, кто именно нажал, технически невозможно. В таких случаях мы делаем возврат, если услугой не пользовались, а просмотров у вас не было.\n[7] Клиент (2026-09-11T09:23:30+03:00): То есть деньги вернут?\n[8] Оператор (2026-09-11T09:25:12+03:00): Я передал заявку в финансовый отдел с пометкой, что просмотров не было. Решение придёт вам письмом на электронную почту, указанную в договоре.\n[9] Клиент (2026-09-11T09:26:05+03:00): Хорошо. Только в этот раз, пожалуйста, действительно сообщите.\n[10] Оператор (2026-09-11T09:27:18+03:00): Обязательно сообщим. Могу ли я помочь чем-то ещё? Если нет, желаю хорошего дня!\n\nВопросы:\n- greeting: Оператор поздоровался и представился?\n  Как оценивать: «Да», если в первой реплике оператора есть приветствие и имя оператора или название компании вместе с именем. Одного названия компании без приветствия недостаточно.\n  Допустимые ответы: \"no\" (Нет), \"yes\" (Да).\n- identification: Оператор идентифицировал клиента?\n  Как оценивать: «Да», если оператор запросил и получил хотя бы один идентификатор (номер договора, ФИО владельца, номер заявки) до того, как сообщать сведения по договору.\n  Допустимые ответы: \"no\" (Нет), \"yes\" (Да).\n- procedure: Соблюдён ли регламент обработки обращения?\n  Как оценивать: Регламент: выяснить суть, проверить данные в системе, предложить решение или оформить заявку, сообщить номер заявки и срок. «Частично», если пропущен один шаг; «не соблюдён», если пропущено больше.\n  Допустимые ответы: \"violated\" (Не соблюдён), \"partial\" (Частично), \"followed\" (Полностью).\n- empathy: Активное слушание и эмпатия\n  Как оценивать: 1 — оператор перебивает, игнорирует эмоции клиента или грубит; 3 — вежлив, но формален; 5 — признаёт проблему клиента, уточняет, подтверждает понимание.\n  Допустимые ответы: шкала от 1 до 5.\n- accuracy: Точность предоставленной информации\n  Как оценивать: Сравните сведения оператора о суммах, сроках и условиях со сведениями из других взаимодействий обращения. «Неточно», если срок или сумма расходятся с итоговыми; «неверно», если сведения ведут клиента к ошибочным действиям.\n  Допустимые ответы: \"wrong\" (Неверно), \"inexact\" (Неточно), \"correct\" (Верно).\n- forbidden: Использовал ли оператор запрещённые формулировки?\n  Как оценивать: Запрещены: перекладывание ответственности («это не мои проблемы», «это не ко мне»), обращение «мужчина»/«женщина», грубость, упрёки клиенту. Если таких фраз нет, ответ «нет» без цитаты.\n  Допустимые ответы: \"yes\" (Да), \"no\" (Нет).\n  Ответ \"no\" допустим без доказательств.\n- resolved: Вопрос клиента решён?\n  Как оценивать: Оцените итог по всему обращению: решение может прийти в последнем взаимодействии. «Решён частично», если решена часть требований клиента или решение только обещано.\n  Допустимые ответы: \"unresolved\" (Не решён), \"partial\" (Решён частично), \"resolved\" (Решён).\n  Для ответа может понадобиться несколько взаимодействий.\n- promises: Данные клиенту обещания выполнены?\n  Как оценивать: Найдите обещания оператора (перезвонить, прислать, сообщить) и проверьте по последующим взаимодействиям, выполнены ли они. «Нет», если хотя бы одно обещание явно не выполнено.\n  Допустимые ответы: \"no\" (Нет), \"yes\" (Да).\n  Для ответа может понадобиться несколько взаимодействий.\n- closing: Разговор корректно завершён?\n  Как оценивать: «Да», если оператор уточнил, остались ли вопросы, и попрощался.\n  Допустимые ответы: \"no\" (Нет), \"yes\" (Да).\n- documented: Обращение задокументировано?\n  Как оценивать: «Да», если оператор сообщил, что зафиксировал обращение, оформил заявку или назвал её номер.\n  Допустимые ответы: \"no\" (Нет), \"yes\" (Да)."
+    }
+  ]
+}

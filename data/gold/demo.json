@@ -1,0 +1,40 @@
+{
+  "case": "demo",
+  "rubric": "default",
+  "rubricRevision": 0,
+  "answers": {
+    "greeting": {
+      "value": "yes"
+    },
+    "identification": {
+      "value": "yes"
+    },
+    "procedure": {
+      "value": "followed"
+    },
+    "empathy": {
+      "value": 4
+    },
+    "accuracy": {
+      "value": "inexact",
+      "note": "в звонке срок перерасчёта «три рабочих дня», в письме — десять рабочих дней"
+    },
+    "forbidden": {
+      "value": "no"
+    },
+    "resolved": {
+      "value": "resolved",
+      "note": "решение приходит только в письме"
+    },
+    "promises": {
+      "value": "no",
+      "note": "обещанный звонок до шести вечера не состоялся, клиент пишет об этом в чат"
+    },
+    "closing": {
+      "value": "yes"
+    },
+    "documented": {
+      "value": "yes"
+    }
+  }
+}

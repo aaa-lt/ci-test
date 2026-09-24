@@ -1,0 +1,1427 @@
+{
+  "key": {
+    "runId": "qwen235-reference-b2",
+    "caseId": "demo",
+    "scheme": "b2",
+    "model": "yandex-qwen3-235b",
+    "providerModel": "gpt://{folder}/qwen3-235b-a22b-fp8",
+    "engine": "reference",
+    "rubric": "default",
+    "rubricRevision": 0,
+    "promptVersion": "b2-v1",
+    "decoding": {
+      "temperature": 0,
+      "structured": "json_schema",
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      }
+    },
+    "options": {
+      "verify": true,
+      "maxAttempts": 3,
+      "fuzzyThreshold": 0.8
+    }
+  },
+  "seconds": 128.2,
+  "score": {
+    "sections": [
+      {
+        "id": "opening",
+        "score": 1,
+        "answered": 2,
+        "unanswered": 0
+      },
+      {
+        "id": "conduct",
+        "score": 1,
+        "answered": 4,
+        "unanswered": 0
+      },
+      {
+        "id": "outcome",
+        "score": 0.75,
+        "answered": 4,
+        "unanswered": 0
+      }
+    ],
+    "total": 0.9,
+    "incomplete": false,
+    "autoFail": null,
+    "unanswered": 0,
+    "priority": 0,
+    "priorityRule": {
+      "deficit": 10,
+      "autoFail": 5,
+      "unanswered": 1,
+      "rejected": 0.2
+    }
+  },
+  "answers": [
+    {
+      "questionId": "greeting",
+      "status": "answered",
+      "value": "yes",
+      "reasoning": "В первом взаимодействии оператор op-anna поздоровалась, назвала название компании и своё имя. Во втором взаимодействии оператор op-dmitry также поздоровался и представился. Оба случая соответствуют критерию.",
+      "evidence": [
+        "E1",
+        "E23"
+      ],
+      "attempts": 1
+    },
+    {
+      "questionId": "identification",
+      "status": "answered",
+      "value": "yes",
+      "reasoning": "Оператор op-anna запрашивает номер договора и ФИО клиента, после чего подтверждает идентификацию. Оператор op-dmitry также запрашивает идентификатор, и клиент его предоставляет. Идентификация выполнена до передачи информации по договору.",
+      "evidence": [
+        "E2",
+        "E3",
+        "E4",
+        "E24",
+        "E25"
+      ],
+      "attempts": 1
+    },
+    {
+      "questionId": "procedure",
+      "status": "answered",
+      "value": "followed",
+      "reasoning": "Операторы последовательно выяснили суть, проверили данные, оформили заявку, сообщили её номер и сроки. В итоговом письме подтверждены решение и срок зачисления. Все шаги регламента соблюдены.",
+      "evidence": [
+        "E5",
+        "E6",
+        "E7",
+        "E8",
+        "E26",
+        "E27",
+        "E35",
+        "E36"
+      ],
+      "attempts": 1
+    },
+    {
+      "questionId": "empathy",
+      "status": "answered",
+      "value": "5",
+      "reasoning": "Операторы признают неприятность ситуации, извиняются, подтверждают понимание эмоций клиента и проявляют заботу. Есть подтверждение понимания и активное слушание.",
+      "evidence": [
+        "E9",
+        "E10",
+        "E28",
+        "E29"
+      ],
+      "attempts": 1
+    },
+    {
+      "questionId": "accuracy",
+      "status": "answered",
+      "value": "correct",
+      "reasoning": "Все предоставленные суммы, сроки и условия совпадают с итоговыми данными в письме. Никаких противоречий не выявлено.",
+      "evidence": [
+        "E11",
+        "E12",
+        "E13",
+        "E30",
+        "E37",
+        "E38"
+      ],
+      "attempts": 1
+    },
+    {
+      "questionId": "forbidden",
+      "status": "answered",
+      "value": "no",
+      "reasoning": "В приведённых доказательствах отсутствуют запрещённые формулировки: нет перекладывания ответственности, грубости, упрёков или некорректных обращений.",
+      "evidence": [],
+      "attempts": 1
+    },
+    {
+      "questionId": "resolved",
+      "status": "answered",
+      "value": "resolved",
+      "reasoning": "Услуга отключена, заявка на перерасчёт рассмотрена положительно, сумма будет возвращена. Все требования клиента удовлетворены, решение подтверждено в итоговом письме.",
+      "evidence": [
+        "E14",
+        "E40",
+        "E39"
+      ],
+      "attempts": 1
+    },
+    {
+      "questionId": "promises",
+      "status": "answered",
+      "value": "no",
+      "reasoning": "Оператор op-anna обещал перезвонить до 18:00, но в последующих взаимодействиях нет подтверждения, что он это сделал. Письмо пришло от другого оператора, а не от того, кто обещал. Обещание не подтверждено выполненным.",
+      "evidence": [
+        "E17",
+        "E18",
+        "E41"
+      ],
+      "attempts": 1
+    },
+    {
+      "questionId": "closing",
+      "status": "answered",
+      "value": "yes",
+      "reasoning": "Оператор op-anna уточнил, остались ли вопросы, и попрощался. Оператор op-dmitry также завершил чат корректно. Оба завершения соответствуют критерию.",
+      "evidence": [
+        "E19",
+        "E20",
+        "E33"
+      ],
+      "attempts": 1
+    },
+    {
+      "questionId": "documented",
+      "status": "answered",
+      "value": "yes",
+      "reasoning": "Оператор op-anna сообщила номер заявки и подтвердила фиксацию обращения в системе. Оператор op-dmitry сообщил о передаче заявки. Все действия свидетельствуют о документировании.",
+      "evidence": [
+        "E21",
+        "E22",
+        "E34"
+      ],
+      "attempts": 1
+    }
+  ],
+  "evidence": [
+    {
+      "questionId": "greeting",
+      "interactionId": "call-1",
+      "turn": 1,
+      "quote": "Компания «Кварта», меня зовут Анна. Здравствуйте, чем могу помочь?",
+      "note": "Оператор поздоровался и представился — есть название компании, имя и приветствие.",
+      "verification": {
+        "level": "exact",
+        "turn": 1,
+        "from": 0,
+        "to": 9,
+        "similarity": 1,
+        "matched": "компания кварта меня зовут анна здравствуйте чем могу помочь",
+        "seek": 0.8
+      },
+      "id": "E1"
+    },
+    {
+      "questionId": "identification",
+      "interactionId": "call-1",
+      "turn": 3,
+      "quote": "Подскажите, пожалуйста, номер договора.",
+      "note": "Оператор запрашивает идентификатор — номер договора.",
+      "verification": {
+        "level": "exact",
+        "turn": 3,
+        "from": 5,
+        "to": 9,
+        "similarity": 1,
+        "matched": "подскажите пожалуйста номер договора",
+        "seek": 16.734
+      },
+      "id": "E2"
+    },
+    {
+      "questionId": "identification",
+      "interactionId": "call-1",
+      "turn": 5,
+      "quote": "И назовите, пожалуйста, фамилию, имя и отчество владельца договора.",
+      "note": "Оператор запрашивает второй идентификатор — ФИО владельца.",
+      "verification": {
+        "level": "exact",
+        "turn": 5,
+        "from": 1,
+        "to": 10,
+        "similarity": 1,
+        "matched": "и назовите пожалуйста фамилию имя и отчество владельца договора",
+        "seek": 30.049
+      },
+      "id": "E3"
+    },
+    {
+      "questionId": "identification",
+      "interactionId": "call-1",
+      "turn": 7,
+      "quote": "Сергей Викторович, спасибо, вижу ваш договор.",
+      "note": "Оператор подтверждает идентификацию клиента перед проверкой данных.",
+      "verification": {
+        "level": "exact",
+        "turn": 7,
+        "from": 0,
+        "to": 6,
+        "similarity": 1,
+        "matched": "сергей викторович спасибо вижу ваш договор",
+        "seek": 38.576
+      },
+      "id": "E4"
+    },
+    {
+      "questionId": "procedure",
+      "interactionId": "call-1",
+      "turn": 3,
+      "quote": "Подскажите, пожалуйста, номер договора.",
+      "note": "Выяснение данных клиента перед проверкой.",
+      "verification": {
+        "level": "exact",
+        "turn": 3,
+        "from": 5,
+        "to": 9,
+        "similarity": 1,
+        "matched": "подскажите пожалуйста номер договора",
+        "seek": 16.734
+      },
+      "id": "E5"
+    },
+    {
+      "questionId": "procedure",
+      "interactionId": "call-1",
+      "turn": 15,
+      "quote": "Отключить услугу я могу прямо сейчас. Отключаю?",
+      "note": "Предложение решения по проблеме.",
+      "verification": {
+        "level": "exact",
+        "turn": 15,
+        "from": 0,
+        "to": 7,
+        "similarity": 1,
+        "matched": "отключить услугу я могу прямо сейчас отключаю",
+        "seek": 95.411
+      },
+      "id": "E6"
+    },
+    {
+      "questionId": "procedure",
+      "interactionId": "call-1",
+      "turn": 21,
+      "quote": "Обычно в течение трёх рабочих дней.",
+      "note": "Сообщение срока рассмотрения заявки.",
+      "verification": {
+        "level": "exact",
+        "turn": 21,
+        "from": 0,
+        "to": 6,
+        "similarity": 1,
+        "matched": "обычно в течение трех рабочих дней",
+        "seek": 120.496
+      },
+      "id": "E7"
+    },
+    {
+      "questionId": "procedure",
+      "interactionId": "call-1",
+      "turn": 33,
+      "quote": "Номер вашей заявки на перерасчёт: два девять ноль пять один шесть. Запишите, пожалуйста.",
+      "note": "Сообщение номера заявки.",
+      "verification": {
+        "level": "exact",
+        "turn": 33,
+        "from": 1,
+        "to": 14,
+        "similarity": 1,
+        "matched": "номер вашей заявки на перерасчет два девять ноль пять один шесть запишите пожалуйста",
+        "seek": 176.087
+      },
+      "id": "E8"
+    },
+    {
+      "questionId": "empathy",
+      "interactionId": "call-1",
+      "turn": 3,
+      "quote": "Понимаю, ситуация неприятная. Давайте разберёмся.",
+      "note": "Оператор признаёт проблему и выражает понимание.",
+      "verification": {
+        "level": "exact",
+        "turn": 3,
+        "from": 0,
+        "to": 5,
+        "similarity": 1,
+        "matched": "понимаю ситуация неприятная давайте разберемся",
+        "seek": 16.734
+      },
+      "id": "E9"
+    },
+    {
+      "questionId": "empathy",
+      "interactionId": "call-1",
+      "turn": 13,
+      "quote": "Уведомление должно было прийти в личный кабинет. Но я вас услышала, понимаю ваше возмущение.",
+      "note": "Оператор подтверждает эмоции клиента и признаёт его правоту.",
+      "verification": {
+        "level": "exact",
+        "turn": 13,
+        "from": 0,
+        "to": 14,
+        "similarity": 1,
+        "matched": "уведомление должно было прийти в личный кабинет но я вас услышала понимаю ваше возмущение",
+        "seek": 81.716
+      },
+      "id": "E10"
+    },
+    {
+      "questionId": "accuracy",
+      "interactionId": "call-1",
+      "turn": 9,
+      "quote": "У вас действительно подключён Кинопакет плюс, двести девяносто девять рублей в месяц.",
+      "note": "Точная сумма ежемесячного списания.",
+      "verification": {
+        "level": "exact",
+        "turn": 9,
+        "from": 2,
+        "to": 14,
+        "similarity": 1,
+        "matched": "у вас действительно подключен кинопакет плюс двести девяносто девять рублей в месяц",
+        "seek": 49.795
+      },
+      "id": "E11"
+    },
+    {
+      "questionId": "accuracy",
+      "interactionId": "call-1",
+      "turn": 23,
+      "quote": "Если заявку одобрят, да. Сумма за два месяца, пятьсот девяносто восемь рублей, вернётся на лицевой счёт.",
+      "note": "Точная сумма возврата и способ зачисления.",
+      "verification": {
+        "level": "exact",
+        "turn": 23,
+        "from": 0,
+        "to": 16,
+        "similarity": 1,
+        "matched": "если заявку одобрят да сумма за два месяца пятьсот девяносто восемь рублей вернется на лицевой счет",
+        "seek": 126.682
+      },
+      "id": "E12"
+    },
+    {
+      "questionId": "accuracy",
+      "interactionId": "call-1",
+      "turn": 21,
+      "quote": "Обычно в течение трёх рабочих дней.",
+      "note": "Корректный срок рассмотрения заявки.",
+      "verification": {
+        "level": "exact",
+        "turn": 21,
+        "from": 0,
+        "to": 6,
+        "similarity": 1,
+        "matched": "обычно в течение трех рабочих дней",
+        "seek": 120.496
+      },
+      "id": "E13"
+    },
+    {
+      "questionId": "resolved",
+      "interactionId": "call-1",
+      "turn": 17,
+      "quote": "Готово, Кинопакет плюс отключён с сегодняшнего дня, больше списаний за него не будет.",
+      "note": "Частичное решение — услуга отключена.",
+      "verification": {
+        "level": "exact",
+        "turn": 17,
+        "from": 0,
+        "to": 13,
+        "similarity": 1,
+        "matched": "готово кинопакет плюс отключен с сегодняшнего дня больше списаний за него не будет",
+        "seek": 102.822
+      },
+      "id": "E14"
+    },
+    {
+      "questionId": "resolved",
+      "interactionId": "call-1",
+      "turn": 19,
+      "quote": "Я оформлю заявку на перерасчёт, её рассмотрят.",
+      "note": "Решение по возврату только обещано, не выполнено.",
+      "verification": {
+        "level": "exact",
+        "turn": 19,
+        "from": 6,
+        "to": 13,
+        "similarity": 1,
+        "matched": "я оформлю заявку на перерасчет ее рассмотрят",
+        "seek": 110.519
+      },
+      "id": "E15"
+    },
+    {
+      "questionId": "resolved",
+      "interactionId": "call-1",
+      "turn": 29,
+      "quote": "Как только будет ответ, я вам перезвоню. Сегодня до шести вечера.",
+      "note": "Обещание дальнейших действий, но результат пока не достигнут.",
+      "verification": {
+        "level": "exact",
+        "turn": 29,
+        "from": 0,
+        "to": 11,
+        "similarity": 1,
+        "matched": "как только будет ответ я вам перезвоню сегодня до шести вечера",
+        "seek": 156.231
+      },
+      "id": "E16"
+    },
+    {
+      "questionId": "promises",
+      "interactionId": "call-1",
+      "turn": 29,
+      "quote": "Как только будет ответ, я вам перезвоню. Сегодня до шести вечера.",
+      "note": "Оператор дал обещание перезвонить, но в этом звонке его выполнение не подтверждено.",
+      "verification": {
+        "level": "exact",
+        "turn": 29,
+        "from": 0,
+        "to": 11,
+        "similarity": 1,
+        "matched": "как только будет ответ я вам перезвоню сегодня до шести вечера",
+        "seek": 156.231
+      },
+      "id": "E17"
+    },
+    {
+      "questionId": "promises",
+      "interactionId": "call-1",
+      "turn": 31,
+      "quote": "Да, я лично перезвоню. Номер для связи тот, что указан в договоре, заканчивается на сорок семь?",
+      "note": "Подтверждение обещания перезвонить.",
+      "verification": {
+        "level": "exact",
+        "turn": 31,
+        "from": 0,
+        "to": 16,
+        "similarity": 1,
+        "matched": "да я лично перезвоню номер для связи тот что указан в договоре заканчивается на сорок семь",
+        "seek": 166.962
+      },
+      "id": "E18"
+    },
+    {
+      "questionId": "closing",
+      "interactionId": "call-1",
+      "turn": 37,
+      "quote": "Сергей Викторович, могу я ещё чем-то помочь?",
+      "note": "Оператор уточняет, остались ли вопросы.",
+      "verification": {
+        "level": "exact",
+        "turn": 37,
+        "from": 0,
+        "to": 8,
+        "similarity": 1,
+        "matched": "сергей викторович могу я еще чем то помочь",
+        "seek": 197.134
+      },
+      "id": "E19"
+    },
+    {
+      "questionId": "closing",
+      "interactionId": "call-1",
+      "turn": 39,
+      "quote": "Спасибо, что обратились в «Кварту». Хорошего дня.",
+      "note": "Оператор попрощался.",
+      "verification": {
+        "level": "exact",
+        "turn": 39,
+        "from": 9,
+        "to": 16,
+        "similarity": 1,
+        "matched": "спасибо что обратились в кварту хорошего дня",
+        "seek": 202.149
+      },
+      "id": "E20"
+    },
+    {
+      "questionId": "documented",
+      "interactionId": "call-1",
+      "turn": 33,
+      "quote": "Номер вашей заявки на перерасчёт: два девять ноль пять один шесть. Запишите, пожалуйста.",
+      "note": "Оператор сообщил номер заявки.",
+      "verification": {
+        "level": "exact",
+        "turn": 33,
+        "from": 1,
+        "to": 14,
+        "similarity": 1,
+        "matched": "номер вашей заявки на перерасчет два девять ноль пять один шесть запишите пожалуйста",
+        "seek": 176.087
+      },
+      "id": "E21"
+    },
+    {
+      "questionId": "documented",
+      "interactionId": "call-1",
+      "turn": 35,
+      "quote": "Я также зафиксировала ваше обращение в системе с описанием ситуации, чтобы коллеги видели всю историю.",
+      "note": "Оператор подтвердил документирование обращения.",
+      "verification": {
+        "level": "exact",
+        "turn": 35,
+        "from": 0,
+        "to": 15,
+        "similarity": 1,
+        "matched": "я также зафиксировала ваше обращение в системе с описанием ситуации чтобы коллеги видели всю историю",
+        "seek": 187.864
+      },
+      "id": "E22"
+    },
+    {
+      "questionId": "greeting",
+      "interactionId": "chat-1",
+      "turn": 2,
+      "quote": "Здравствуйте! Меня зовут Дмитрий.",
+      "note": "Оператор поздоровался и назвал своё имя",
+      "verification": {
+        "level": "exact",
+        "turn": 2,
+        "from": 0,
+        "to": 4,
+        "similarity": 1,
+        "matched": "здравствуйте меня зовут дмитрий",
+        "seek": null
+      },
+      "id": "E23"
+    },
+    {
+      "questionId": "identification",
+      "interactionId": "chat-1",
+      "turn": 2,
+      "quote": "Подскажите, пожалуйста, номер договора или номер заявки.",
+      "note": "Оператор запросил идентификатор клиента",
+      "verification": {
+        "level": "exact",
+        "turn": 2,
+        "from": 10,
+        "to": 17,
+        "similarity": 1,
+        "matched": "подскажите пожалуйста номер договора или номер заявки",
+        "seek": null
+      },
+      "id": "E24"
+    },
+    {
+      "questionId": "identification",
+      "interactionId": "chat-1",
+      "turn": 3,
+      "quote": "Заявка 290516",
+      "note": "Клиент предоставил номер заявки",
+      "verification": {
+        "level": "exact",
+        "turn": 3,
+        "from": 0,
+        "to": 2,
+        "similarity": 1,
+        "matched": "заявка 290516",
+        "seek": null
+      },
+      "id": "E25"
+    },
+    {
+      "questionId": "procedure",
+      "interactionId": "chat-1",
+      "turn": 4,
+      "quote": "Вижу заявку на перерасчёт за услугу «Кинопакет плюс», она в работе.",
+      "note": "Оператор проверил данные в системе",
+      "verification": {
+        "level": "exact",
+        "turn": 4,
+        "from": 1,
+        "to": 12,
+        "similarity": 1,
+        "matched": "вижу заявку на перерасчет за услугу кинопакет плюс она в работе",
+        "seek": null
+      },
+      "id": "E26"
+    },
+    {
+      "questionId": "procedure",
+      "interactionId": "chat-1",
+      "turn": 8,
+      "quote": "Я передал заявку в финансовый отдел с пометкой, что просмотров не было.",
+      "note": "Оператор оформил заявку и предложил решение",
+      "verification": {
+        "level": "exact",
+        "turn": 8,
+        "from": 0,
+        "to": 12,
+        "similarity": 1,
+        "matched": "я передал заявку в финансовый отдел с пометкой что просмотров не было",
+        "seek": null
+      },
+      "id": "E27"
+    },
+    {
+      "questionId": "empathy",
+      "interactionId": "chat-1",
+      "turn": 2,
+      "quote": "Приношу извинения, что вам не перезвонили.",
+      "note": "Оператор признал проблему и извинился",
+      "verification": {
+        "level": "exact",
+        "turn": 2,
+        "from": 4,
+        "to": 10,
+        "similarity": 1,
+        "matched": "приношу извинения что вам не перезвонили",
+        "seek": null
+      },
+      "id": "E28"
+    },
+    {
+      "questionId": "empathy",
+      "interactionId": "chat-1",
+      "turn": 10,
+      "quote": "Обязательно сообщим. Могу ли я помочь чем-то ещё?",
+      "note": "Оператор подтвердил выполнение обещания и проявил заботу",
+      "verification": {
+        "level": "exact",
+        "turn": 10,
+        "from": 0,
+        "to": 9,
+        "similarity": 1,
+        "matched": "обязательно сообщим могу ли я помочь чем то еще",
+        "seek": null
+      },
+      "id": "E29"
+    },
+    {
+      "questionId": "accuracy",
+      "interactionId": "chat-1",
+      "turn": 8,
+      "quote": "Решение придёт вам письмом на электронную почту, указанную в договоре.",
+      "note": "Оператор корректно указал способ информирования",
+      "verification": {
+        "level": "exact",
+        "turn": 8,
+        "from": 12,
+        "to": 22,
+        "similarity": 1,
+        "matched": "решение придет вам письмом на электронную почту указанную в договоре",
+        "seek": null
+      },
+      "id": "E30"
+    },
+    {
+      "questionId": "resolved",
+      "interactionId": "chat-1",
+      "turn": 8,
+      "quote": "Я передал заявку в финансовый отдел с пометкой, что просмотров не было.",
+      "note": "Оператор предпринял действия, но решение ещё не принято",
+      "verification": {
+        "level": "exact",
+        "turn": 8,
+        "from": 0,
+        "to": 12,
+        "similarity": 1,
+        "matched": "я передал заявку в финансовый отдел с пометкой что просмотров не было",
+        "seek": null
+      },
+      "id": "E31"
+    },
+    {
+      "questionId": "promises",
+      "interactionId": "chat-1",
+      "turn": 10,
+      "quote": "Обязательно сообщим.",
+      "note": "Оператор дал обещание о сообщении результата",
+      "verification": {
+        "level": "exact",
+        "turn": 10,
+        "from": 0,
+        "to": 2,
+        "similarity": 1,
+        "matched": "обязательно сообщим",
+        "seek": null
+      },
+      "id": "E32"
+    },
+    {
+      "questionId": "closing",
+      "interactionId": "chat-1",
+      "turn": 10,
+      "quote": "Могу ли я помочь чем-то ещё? Если нет, желаю хорошего дня!",
+      "note": "Оператор уточнил наличие других вопросов и попрощался",
+      "verification": {
+        "level": "exact",
+        "turn": 10,
+        "from": 2,
+        "to": 14,
+        "similarity": 1,
+        "matched": "могу ли я помочь чем то еще если нет желаю хорошего дня",
+        "seek": null
+      },
+      "id": "E33"
+    },
+    {
+      "questionId": "documented",
+      "interactionId": "chat-1",
+      "turn": 8,
+      "quote": "Я передал заявку в финансовый отдел с пометкой, что просмотров не было.",
+      "note": "Оператор сообщил о передаче заявки, что свидетельствует о документировании",
+      "verification": {
+        "level": "exact",
+        "turn": 8,
+        "from": 0,
+        "to": 12,
+        "similarity": 1,
+        "matched": "я передал заявку в финансовый отдел с пометкой что просмотров не было",
+        "seek": null
+      },
+      "id": "E34"
+    },
+    {
+      "questionId": "procedure",
+      "interactionId": "email-1",
+      "turn": 1,
+      "quote": "По вашей заявке № 290516 принято положительное решение.",
+      "note": "Подтверждение наличия заявки с указанием номера — часть регламента.",
+      "verification": {
+        "level": "exact",
+        "turn": 1,
+        "from": 3,
+        "to": 10,
+        "similarity": 1,
+        "matched": "по вашей заявке 290516 принято положительное решение",
+        "seek": null
+      },
+      "id": "E35"
+    },
+    {
+      "questionId": "procedure",
+      "interactionId": "email-1",
+      "turn": 1,
+      "quote": "Сумма 598 рублей за услугу «Кинопакет плюс» за июль и август будет зачислена на лицевой счёт по договору 4177025 в течение 10 рабочих дней.",
+      "note": "Указание срока — соответствие шагу информирования о решении и сроках.",
+      "verification": {
+        "level": "exact",
+        "turn": 1,
+        "from": 10,
+        "to": 34,
+        "similarity": 1,
+        "matched": "сумма 598 рублей за услугу кинопакет плюс за июль и август будет зачислена на лицевой счет по договору 4177025 в течение 10 рабочих дней",
+        "seek": null
+      },
+      "id": "E36"
+    },
+    {
+      "questionId": "accuracy",
+      "interactionId": "email-1",
+      "turn": 1,
+      "quote": "Сумма 598 рублей за услугу «Кинопакет плюс» за июль и август будет зачислена на лицевой счёт по договору 4177025 в течение 10 рабочих дней.",
+      "note": "Конкретные данные о сумме и сроке — признак точности.",
+      "verification": {
+        "level": "exact",
+        "turn": 1,
+        "from": 10,
+        "to": 34,
+        "similarity": 1,
+        "matched": "сумма 598 рублей за услугу кинопакет плюс за июль и август будет зачислена на лицевой счет по договору 4177025 в течение 10 рабочих дней",
+        "seek": null
+      },
+      "id": "E37"
+    },
+    {
+      "questionId": "accuracy",
+      "interactionId": "email-1",
+      "turn": 1,
+      "quote": "Услуга «Кинопакет плюс» отключена 10 сентября.",
+      "note": "Фактическая информация, не противоречит остальному тексту.",
+      "verification": {
+        "level": "exact",
+        "turn": 1,
+        "from": 34,
+        "to": 40,
+        "similarity": 1,
+        "matched": "услуга кинопакет плюс отключена 10 сентября",
+        "seek": null
+      },
+      "id": "E38"
+    },
+    {
+      "questionId": "resolved",
+      "interactionId": "email-1",
+      "turn": 1,
+      "quote": "Сумма 598 рублей за услугу «Кинопакет плюс» за июль и август будет зачислена на лицевой счёт по договору 4177025 в течение 10 рабочих дней.",
+      "note": "Обещание решения, но не факт его выполнения — признак частичного решения.",
+      "verification": {
+        "level": "exact",
+        "turn": 1,
+        "from": 10,
+        "to": 34,
+        "similarity": 1,
+        "matched": "сумма 598 рублей за услугу кинопакет плюс за июль и август будет зачислена на лицевой счет по договору 4177025 в течение 10 рабочих дней",
+        "seek": null
+      },
+      "id": "E39"
+    },
+    {
+      "questionId": "resolved",
+      "interactionId": "email-1",
+      "turn": 1,
+      "quote": "Услуга «Кинопакет плюс» отключена 10 сентября.",
+      "note": "Подтверждение выполненного действия, что может быть частью решения.",
+      "verification": {
+        "level": "exact",
+        "turn": 1,
+        "from": 34,
+        "to": 40,
+        "similarity": 1,
+        "matched": "услуга кинопакет плюс отключена 10 сентября",
+        "seek": null
+      },
+      "id": "E40"
+    },
+    {
+      "questionId": "promises",
+      "interactionId": "email-1",
+      "turn": 1,
+      "quote": "Сумма 598 рублей за услугу «Кинопакет плюс» за июль и август будет зачислена на лицевой счёт по договору 4177025 в течение 10 рабочих дней.",
+      "note": "Обещание, требующее проверки в будущем — без подтверждения выполнения.",
+      "verification": {
+        "level": "exact",
+        "turn": 1,
+        "from": 10,
+        "to": 34,
+        "similarity": 1,
+        "matched": "сумма 598 рублей за услугу кинопакет плюс за июль и август будет зачислена на лицевой счет по договору 4177025 в течение 10 рабочих дней",
+        "seek": null
+      },
+      "id": "E41"
+    }
+  ],
+  "rejectedQuotes": 0,
+  "case": {
+    "id": "demo",
+    "title": "Списание за неподключённую услугу",
+    "interactions": [
+      {
+        "id": "call-1",
+        "channel": "call",
+        "operator": "op-anna",
+        "startedAt": "2026-09-10T14:05:00+03:00",
+        "turns": [
+          {
+            "index": 1,
+            "role": "operator",
+            "start": 0.8,
+            "end": 5.511,
+            "at": null,
+            "text": "Компания «Кварта», меня зовут Анна. Здравствуйте, чем могу помочь?",
+            "words": null,
+            "overlap": false
+          },
+          {
+            "index": 2,
+            "role": "client",
+            "start": 5.966,
+            "end": 16.203,
+            "at": null,
+            "text": "Здравствуйте. Я смотрю выписку по счёту, и у меня уже второй месяц списывают деньги за какой-то Кинопакет плюс. Я его не подключал.",
+            "words": null,
+            "overlap": false
+          },
+          {
+            "index": 3,
+            "role": "operator",
+            "start": 16.734,
+            "end": 23.351,
+            "at": null,
+            "text": "Понимаю, ситуация неприятная. Давайте разберёмся. Подскажите, пожалуйста, номер договора.",
+            "words": null,
+            "overlap": false
+          },
+          {
+            "index": 4,
+            "role": "client",
+            "start": 24.851,
+            "end": 29.552,
+            "at": null,
+            "text": "Сейчас, минутку. Четыре один семь семь ноль два пять.",
+            "words": null,
+            "overlap": false
+          },
+          {
+            "index": 5,
+            "role": "operator",
+            "start": 30.049,
+            "end": 35.734,
+            "at": null,
+            "text": "Спасибо. И назовите, пожалуйста, фамилию, имя и отчество владельца договора.",
+            "words": null,
+            "overlap": false
+          },
+          {
+            "index": 6,
+            "role": "client",
+            "start": 36.077,
+            "end": 38.212,
+            "at": null,
+            "text": "Гаврилов Сергей Викторович.",
+            "words": null,
+            "overlap": false
+          },
+          {
+            "index": 7,
+            "role": "operator",
+            "start": 38.576,
+            "end": 45.118,
+            "at": null,
+            "text": "Сергей Викторович, спасибо, вижу ваш договор. Одну секунду, открываю список услуг.",
+            "words": null,
+            "overlap": true
+          },
+          {
+            "index": 8,
+            "role": "client",
+            "start": 44.818,
+            "end": 45.295,
+            "at": null,
+            "text": "Угу.",
+            "words": null,
+            "overlap": true
+          },
+          {
+            "index": 9,
+            "role": "operator",
+            "start": 49.795,
+            "end": 59.213,
+            "at": null,
+            "text": "Так. Да, у вас действительно подключён Кинопакет плюс, двести девяносто девять рублей в месяц. Подключение от двенадцатого июля.",
+            "words": null,
+            "overlap": false
+          },
+          {
+            "index": 10,
+            "role": "client",
+            "start": 59.738,
+            "end": 65.033,
+            "at": null,
+            "text": "Двенадцатого июля? Я в июле вообще в отпуске был. Я ничего не подключал.",
+            "words": null,
+            "overlap": false
+          },
+          {
+            "index": 11,
+            "role": "operator",
+            "start": 65.314,
+            "end": 71.185,
+            "at": null,
+            "text": "Подключение было выполнено через приставку, с пульта. Может быть, кто-то из домашних нажал?",
+            "words": null,
+            "overlap": false
+          },
+          {
+            "index": 12,
+            "role": "client",
+            "start": 71.695,
+            "end": 81.213,
+            "at": null,
+            "text": "Нет, дома никого не было, я же говорю, мы уезжали всей семьёй. И почему мне никто ничего не сообщил? Ни эсэмэски, ничего.",
+            "words": null,
+            "overlap": false
+          },
+          {
+            "index": 13,
+            "role": "operator",
+            "start": 81.716,
+            "end": 87.742,
+            "at": null,
+            "text": "Уведомление должно было прийти в личный кабинет. Но я вас услышала, понимаю ваше возмущение.",
+            "words": null,
+            "overlap": false
+          },
+          {
+            "index": 14,
+            "role": "client",
+            "start": 88.153,
+            "end": 95.046,
+            "at": null,
+            "text": "В личный кабинет я не захожу. Я хочу, чтобы это отключили и вернули деньги. За оба месяца.",
+            "words": null,
+            "overlap": false
+          },
+          {
+            "index": 15,
+            "role": "operator",
+            "start": 95.411,
+            "end": 99.142,
+            "at": null,
+            "text": "Отключить услугу я могу прямо сейчас. Отключаю?",
+            "words": null,
+            "overlap": false
+          },
+          {
+            "index": 16,
+            "role": "client",
+            "start": 99.5,
+            "end": 100.822,
+            "at": null,
+            "text": "Да, отключайте.",
+            "words": null,
+            "overlap": false
+          },
+          {
+            "index": 17,
+            "role": "operator",
+            "start": 102.822,
+            "end": 108.236,
+            "at": null,
+            "text": "Готово, Кинопакет плюс отключён с сегодняшнего дня, больше списаний за него не будет.",
+            "words": null,
+            "overlap": false
+          },
+          {
+            "index": 18,
+            "role": "client",
+            "start": 108.587,
+            "end": 110.114,
+            "at": null,
+            "text": "Хорошо. А деньги?",
+            "words": null,
+            "overlap": false
+          },
+          {
+            "index": 19,
+            "role": "operator",
+            "start": 110.519,
+            "end": 117.69,
+            "at": null,
+            "text": "По возврату решение принимает финансовый отдел. Я оформлю заявку на перерасчёт, её рассмотрят.",
+            "words": null,
+            "overlap": false
+          },
+          {
+            "index": 20,
+            "role": "client",
+            "start": 118.111,
+            "end": 120.061,
+            "at": null,
+            "text": "И сколько её будут рассматривать?",
+            "words": null,
+            "overlap": false
+          },
+          {
+            "index": 21,
+            "role": "operator",
+            "start": 120.496,
+            "end": 122.76,
+            "at": null,
+            "text": "Обычно в течение трёх рабочих дней.",
+            "words": null,
+            "overlap": false
+          },
+          {
+            "index": 22,
+            "role": "client",
+            "start": 123.319,
+            "end": 126.18,
+            "at": null,
+            "text": "То есть мне вернут пятьсот девяносто восемь рублей?",
+            "words": null,
+            "overlap": false
+          },
+          {
+            "index": 23,
+            "role": "operator",
+            "start": 126.682,
+            "end": 134.014,
+            "at": null,
+            "text": "Если заявку одобрят, да. Сумма за два месяца, пятьсот девяносто восемь рублей, вернётся на лицевой счёт.",
+            "words": null,
+            "overlap": false
+          },
+          {
+            "index": 24,
+            "role": "client",
+            "start": 134.468,
+            "end": 137.105,
+            "at": null,
+            "text": "На лицевой счёт? Я бы хотел на карту.",
+            "words": null,
+            "overlap": false
+          },
+          {
+            "index": 25,
+            "role": "operator",
+            "start": 137.662,
+            "end": 144.218,
+            "at": null,
+            "text": "На карту возврат возможен только по письменному заявлению. Сейчас оформлю на лицевой счёт, так быстрее.",
+            "words": null,
+            "overlap": false
+          },
+          {
+            "index": 26,
+            "role": "client",
+            "start": 144.558,
+            "end": 150.334,
+            "at": null,
+            "text": "Ну ладно, пусть будет на счёт. Но я хочу понять, как вообще это подключилось без меня.",
+            "words": null,
+            "overlap": false
+          },
+          {
+            "index": 27,
+            "role": "operator",
+            "start": 150.659,
+            "end": 155.702,
+            "at": null,
+            "text": "Я передам запрос в техническую службу, чтобы проверили журнал действий приставки.",
+            "words": null,
+            "overlap": true
+          },
+          {
+            "index": 28,
+            "role": "client",
+            "start": 155.302,
+            "end": 155.779,
+            "at": null,
+            "text": "Угу.",
+            "words": null,
+            "overlap": true
+          },
+          {
+            "index": 29,
+            "role": "operator",
+            "start": 156.231,
+            "end": 160.635,
+            "at": null,
+            "text": "Как только будет ответ, я вам перезвоню. Сегодня до шести вечера.",
+            "words": null,
+            "overlap": false
+          },
+          {
+            "index": 30,
+            "role": "client",
+            "start": 160.927,
+            "end": 166.672,
+            "at": null,
+            "text": "Точно перезвоните? А то я в прошлом году уже звонил по интернету, и тоже обещали.",
+            "words": null,
+            "overlap": false
+          },
+          {
+            "index": 31,
+            "role": "operator",
+            "start": 166.962,
+            "end": 174.321,
+            "at": null,
+            "text": "Да, я лично перезвоню. Номер для связи тот, что указан в договоре, заканчивается на сорок семь?",
+            "words": null,
+            "overlap": false
+          },
+          {
+            "index": 32,
+            "role": "client",
+            "start": 174.745,
+            "end": 175.676,
+            "at": null,
+            "text": "Да, он.",
+            "words": null,
+            "overlap": false
+          },
+          {
+            "index": 33,
+            "role": "operator",
+            "start": 176.087,
+            "end": 183.064,
+            "at": null,
+            "text": "Хорошо. Номер вашей заявки на перерасчёт: два девять ноль пять один шесть. Запишите, пожалуйста.",
+            "words": null,
+            "overlap": false
+          },
+          {
+            "index": 34,
+            "role": "client",
+            "start": 184.064,
+            "end": 187.327,
+            "at": null,
+            "text": "Два девять ноль пять один шесть. Записал.",
+            "words": null,
+            "overlap": false
+          },
+          {
+            "index": 35,
+            "role": "operator",
+            "start": 187.864,
+            "end": 194.791,
+            "at": null,
+            "text": "Я также зафиксировала ваше обращение в системе с описанием ситуации, чтобы коллеги видели всю историю.",
+            "words": null,
+            "overlap": false
+          },
+          {
+            "index": 36,
+            "role": "client",
+            "start": 195.247,
+            "end": 196.71,
+            "at": null,
+            "text": "Ладно. Спасибо.",
+            "words": null,
+            "overlap": false
+          },
+          {
+            "index": 37,
+            "role": "operator",
+            "start": 197.134,
+            "end": 200.125,
+            "at": null,
+            "text": "Сергей Викторович, могу я ещё чем-то помочь?",
+            "words": null,
+            "overlap": false
+          },
+          {
+            "index": 38,
+            "role": "client",
+            "start": 200.544,
+            "end": 201.8,
+            "at": null,
+            "text": "Нет, это всё.",
+            "words": null,
+            "overlap": false
+          },
+          {
+            "index": 39,
+            "role": "operator",
+            "start": 202.149,
+            "end": 209.042,
+            "at": null,
+            "text": "Тогда жду ответа от технической службы и перезвоню вам. Спасибо, что обратились в «Кварту». Хорошего дня.",
+            "words": null,
+            "overlap": false
+          },
+          {
+            "index": 40,
+            "role": "client",
+            "start": 209.325,
+            "end": 210.237,
+            "at": null,
+            "text": "До свидания.",
+            "words": null,
+            "overlap": false
+          }
+        ]
+      },
+      {
+        "id": "chat-1",
+        "channel": "chat",
+        "operator": "op-dmitry",
+        "startedAt": "2026-09-11T09:12:40+03:00",
+        "turns": [
+          {
+            "index": 1,
+            "role": "client",
+            "start": null,
+            "end": null,
+            "at": "2026-09-11T09:12:40+03:00",
+            "text": "Здравствуйте. Вчера звонил по поводу списания за Кинопакет, мне обещали перезвонить до шести вечера и не перезвонили.",
+            "words": null,
+            "overlap": false
+          },
+          {
+            "index": 2,
+            "role": "operator",
+            "start": null,
+            "end": null,
+            "at": "2026-09-11T09:14:05+03:00",
+            "text": "Здравствуйте! Меня зовут Дмитрий. Приношу извинения, что вам не перезвонили. Подскажите, пожалуйста, номер договора или номер заявки.",
+            "words": null,
+            "overlap": false
+          },
+          {
+            "index": 3,
+            "role": "client",
+            "start": null,
+            "end": null,
+            "at": "2026-09-11T09:15:31+03:00",
+            "text": "Заявка 290516",
+            "words": null,
+            "overlap": false
+          },
+          {
+            "index": 4,
+            "role": "operator",
+            "start": null,
+            "end": null,
+            "at": "2026-09-11T09:17:02+03:00",
+            "text": "Спасибо. Вижу заявку на перерасчёт за услугу «Кинопакет плюс», она в работе. Запрос в техническую службу тоже вижу, ответ по нему уже есть.",
+            "words": null,
+            "overlap": false
+          },
+          {
+            "index": 5,
+            "role": "client",
+            "start": null,
+            "end": null,
+            "at": "2026-09-11T09:18:10+03:00",
+            "text": "И что техслужба? Мне так никто и не объяснил, как это подключилось.",
+            "words": null,
+            "overlap": false
+          },
+          {
+            "index": 6,
+            "role": "operator",
+            "start": null,
+            "end": null,
+            "at": "2026-09-11T09:22:47+03:00",
+            "text": "По журналу приставки подключение 12 июля выполнено через меню приставки. Установить, кто именно нажал, технически невозможно. В таких случаях мы делаем возврат, если услугой не пользовались, а просмотров у вас не было.",
+            "words": null,
+            "overlap": false
+          },
+          {
+            "index": 7,
+            "role": "client",
+            "start": null,
+            "end": null,
+            "at": "2026-09-11T09:23:30+03:00",
+            "text": "То есть деньги вернут?",
+            "words": null,
+            "overlap": false
+          },
+          {
+            "index": 8,
+            "role": "operator",
+            "start": null,
+            "end": null,
+            "at": "2026-09-11T09:25:12+03:00",
+            "text": "Я передал заявку в финансовый отдел с пометкой, что просмотров не было. Решение придёт вам письмом на электронную почту, указанную в договоре.",
+            "words": null,
+            "overlap": false
+          },
+          {
+            "index": 9,
+            "role": "client",
+            "start": null,
+            "end": null,
+            "at": "2026-09-11T09:26:05+03:00",
+            "text": "Хорошо. Только в этот раз, пожалуйста, действительно сообщите.",
+            "words": null,
+            "overlap": false
+          },
+          {
+            "index": 10,
+            "role": "operator",
+            "start": null,
+            "end": null,
+            "at": "2026-09-11T09:27:18+03:00",
+            "text": "Обязательно сообщим. Могу ли я помочь чем-то ещё? Если нет, желаю хорошего дня!",
+            "words": null,
+            "overlap": false
+          }
+        ]
+      },
+      {
+        "id": "email-1",
+        "channel": "email",
+        "operator": "op-kovalenko",
+        "startedAt": "2026-09-15T11:40:12+03:00",
+        "turns": [
+          {
+            "index": 1,
+            "role": "operator",
+            "start": null,
+            "end": null,
+            "at": "2026-09-15T11:40:12+03:00",
+            "text": "Здравствуйте, Сергей Викторович!\n\nПо вашей заявке № 290516 принято положительное решение. Сумма 598 рублей за услугу «Кинопакет плюс» за июль и август будет зачислена на лицевой счёт по договору 4177025 в течение 10 рабочих дней.\n\nУслуга «Кинопакет плюс» отключена 10 сентября. Чтобы платные услуги не подключались случайно, можно установить PIN-код на покупки в настройках приставки: Меню → Настройки → Родительский контроль.\n\nПриносим извинения за доставленные неудобства.",
+            "words": null,
+            "overlap": false
+          }
+        ]
+      }
+    ]
+  }
+}

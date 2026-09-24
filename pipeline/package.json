@@ -1,0 +1,25 @@
+{
+  "name": "talkodex-pipeline",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Case evaluation: unified representation, B2 extraction and aggregation, quote verification, scoring",
+  "scripts": {
+    "eval": "tsx --env-file-if-exists=../.env src/cli.ts",
+    "report": "tsx src/report.ts",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@ai-sdk/openai-compatible": "^3.0.54",
+    "ai": "^7.0.112",
+    "zod": "^4.6.5"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.2",
+    "tsx": "^4.23.15",
+    "typescript": "^7.0.2",
+    "vitest": "^5.0.1"
+  },
+  "packageManager": "pnpm@11.5.3"
+}
